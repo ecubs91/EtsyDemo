@@ -3,6 +3,22 @@ Etsydemo::Application.routes.draw do
 
   get "pages/about"
   get "pages/contact"
+  get "pages/resources"
+  get "pages/personal_statements"
+  get "pages/college_essays"
+  get "pages/oxbridge_interview_questions"
+  get "pages/suggested_readings"
+  get "pages/exams"
+  get "pages/university_entrance"
+  get "pages/languages"
+  get "pages/online_tuition"
+  get "pages/services_for_schools"
+  get "pages/our_tutors"
+  get "pages/book_a_tutorial"
+  get "pages/how_it_works"
+  
+
+
 
   root 'listings#index'
   # The priority is based upon order of creation: first created -> highest priority.
