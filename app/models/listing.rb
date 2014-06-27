@@ -4,4 +4,7 @@ class Listing < ActiveRecord::Base
    					:dropbox_credentials => Rails.root.join("config/dropbox.yml")
   validates :name, presence: true 
 
+  belongs_to :user, dependent: :delete
+
+
   end
