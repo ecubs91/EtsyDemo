@@ -6,16 +6,16 @@
 	</div>	
 	<div class="col-md-6">
 		<h3><%= @listing.user.name %></h3>
-		<p><%= @listing.university %></p>
-		<p><%= @listing.degree_subject %></p>
-		<p><%= @listing.graduation_year %></p>
-		<p><%= @listing.teaching_subject %></p>				
-		<p><%= @listing.location %></p>
-		<p><%= @listing.tutorial_type %></p>
-		<p><%= @listing.about_myself %></p>
-		<p><%= @listing.tutoring_approach %></p>
-		<p><%= @listing.teaching_experience %></p>		
-		<p><%= @listing.extracurricular_interests %></p>
+		<p><%= "University: #{@listing.university}" %></p>
+		<p><%= "Degree Subject: #{@listing.degree_subject}" %></p>
+		<p><%= "Graduation Year: #{@listing.graduation_year}" %></p>
+		<p><%= "Teaching Subject: #{@listing.teaching_subject}" %></p>				
+		<p><%= "Location: #{@listing.location}" %></p>
+		<p><%= "Tutorial Type: #{@listing.tutorial_type}" %></p>
+		<p><%= "About Myself: #{@listing.about_myself}" %></p>
+		<p><%= "Tutoring Approach: #{@listing.tutoring_approach}" %></p>
+		<p><%= "Teaching Experience: #{@listing.teaching_experience}" %></p>		
+		<p><%= "Extracurricular Interests: #{@listing.extracurricular_interests}" %></p>
 		<p><%= number_to_currency(@listing.price) %></p>
 		<p><%= @listing.description %></p>
 
