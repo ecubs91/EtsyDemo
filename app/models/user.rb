@@ -6,5 +6,8 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true  
 
-  has_many :listings     
+  has_many :listings, dependent: :destroy
+  has_many :sales, class_name: "Tutorial_Request", foreign_key: "tutor_id"
+  has_many :purchases, class_name: "Tutorial_Request", foreign_key: "student_id"  
+
 end

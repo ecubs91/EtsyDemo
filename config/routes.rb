@@ -1,10 +1,19 @@
 Etsydemo::Application.routes.draw do
+  
+
   devise_for :users
-  resources :listings
+  resources :listings do
+    resources :tutorial_requests
+  end
+  
+
+
 
   get "pages/about"
   get "pages/contact"
   get "pages/resources"
+
+
   get "pages/personal_statements"
   get "pages/college_essays"
   get "pages/oxbridge_interview_questions"
