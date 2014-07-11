@@ -19,26 +19,26 @@
         <li class="dropdown">
           <a href="university_entrance" class="dropdown-toggle" data-toggle="dropdown">Tuition<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="exams">School Curriculum & Exams</a></li>
-            <li><a href="university_entrance">University Entrace</a></li>
-            <li><a href="languages">Language Learning</a></li>
+            <li><%= link_to "School Curriculum & Exams", pages_exams_path %></li>
+            <li><%= link_to "University Entrace", pages_university_entrance_path %></li>
+            <li><%= link_to "Language Learning", pages_languages_path %></li>            
             <li class="divider"></li>
-            <li><a href="online_tuition">Online Tuition</a></li>
+            <li><%= link_to "Online Tuition", pages_online_tuition_path %></li>            
             <li class="divider"></li>
-            <li><a href="services_for_schools">Services For Schools</a></li>
+            <li><%= link_to "Services For Schools", pages_services_for_schools_path %></li>            
           </ul>
         </li>
       
-        <li><a href="/pages/our_tutors">Our Tutors</a></li>
-        <li><a href="/pages/book_a_tutorial">Book a Tutorial</a></li>
-        <li><a href="/pages/how_it_works">How it works</a></li>
+        <li><%= link_to "Our Tutors", pages_our_tutors_path %></li>
+        <li><%= link_to "Book a Tutorial", pages_book_a_tutorial_path %></li>
+        <li><%= link_to "How it works", pages_how_it_works_path %></li>      
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources <span class="caret"></span></a>
+          <a href="" class="dropdown-toggle" data-toggle="dropdown">Resources <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="personal_statements">Personal Statements</a></li>
-            <li><a href="college_essays">College Essays</a></li>
-            <li><a href="oxbridge_interview_questions">Oxbridge Interview Questions</a></li>
-            <li><a href="suggested_readings">Suggested Readings</a></li>
+            <li><%= link_to "Personal Statements", pages_personal_statements_path %></li>
+            <li><%= link_to "College Essays", pages_college_essays_path %></li>
+            <li><%= link_to "Oxbridge Interview Questions", pages_oxbridge_interview_questions_path %></li>
+            <li><%= link_to "Suggested Readings", pages_suggested_readings_path %></li>
           </ul>
         </li>
 

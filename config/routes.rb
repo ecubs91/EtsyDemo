@@ -5,15 +5,20 @@ Etsydemo::Application.routes.draw do
   resources :listings do
     resources :tutorial_requests
   end
-  
+
 
 
 
   get "pages/about"
   get "pages/contact"
+  get 'sales' => "tutorial_requests#sales"
+  get 'purchases' => "tutorial_requests#purchases"
+  
+
+
+
+
   get "pages/resources"
-
-
   get "pages/personal_statements"
   get "pages/college_essays"
   get "pages/oxbridge_interview_questions"

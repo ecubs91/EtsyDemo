@@ -2,10 +2,19 @@ class TutorialRequestsController < ApplicationController
   before_action :set_tutorial_request, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
+  def sales
+    @tutorial_requests = Tutorial_Request.all.where(tutor: current_user).tutorial_request("created_at DESC")
+  end
+
+  def purchases
+    @tutorial_requests = Tutorial_Request.all.where(student: current_user).tutorial_request("created_at DESC")
+  end
+
+
   # GET /tutorial_requests
   # GET /tutorial_requests.json
   def index
-    @tutorial_requests = TutorialRequest.all
+    @tutorial_requests = Tutorial_Request.all
   end
 
   # GET /tutorial_requests/1
@@ -15,7 +24,7 @@ class TutorialRequestsController < ApplicationController
 
   # GET /tutorial_requests/new
   def new
-    @tutorial_request = TutorialRequest.new
+    @tutorial_request = Tutorial_Request.new
     @listing = Listing.find(params[:listing_id])
   end
 
@@ -79,3 +88,5 @@ class TutorialRequestsController < ApplicationController
       params.require(:tutorial_request).permit(:subject, :level, :duration)
     end
 end
+
+

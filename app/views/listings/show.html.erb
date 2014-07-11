@@ -1,29 +1,37 @@
 <div class="row">
-	<div class="col-md-6">
-		<div class="thumbnail">
-		<%= image_tag @listing.image.url %>	
+	
+
+	<div class="col-md-2">
+		<div class="thumbnail">	
+			<a href="/listings/<%= @listing.id %>">
+				<div class="image-photo" style="background-image: url('<%= @listing.image.url %>'); width: 150px; background-size: 100%; height: 150px;">
+				</div>
+			</a>
 		</div>
 	</div>	
-	<div class="col-md-6">
+	<div class="col-md-8">
 		<h3><%= @listing.user.name %></h3>
-		<p><%= "University: #{@listing.university}" %></p>
-		<p><%= "Degree Subject: #{@listing.degree_subject}" %></p>
-		<p><%= "Graduation Year: #{@listing.graduation_year}" %></p>
-		<p><%= "Teaching Subject: #{@listing.teaching_subject}" %></p>				
-		<p><%= "Location: #{@listing.location}" %></p>
-		<p><%= "Tutorial Type: #{@listing.tutorial_type}" %></p>
-		<p><%= "About Myself: #{@listing.about_myself}" %></p>
-		<p><%= "Tutoring Approach: #{@listing.tutoring_approach}" %></p>
-		<p><%= "Teaching Experience: #{@listing.teaching_experience}" %></p>		
-		<p><%= "Extracurricular Interests: #{@listing.extracurricular_interests}" %></p>
-		<p><%= number_to_currency(@listing.price) %></p>
-		<p><%= @listing.description %></p>
+		<p>University: <%= "#{@listing.university}" %> &nbsp;|&nbsp; Degree Subject: <%= "#{@listing.degree_subject}" %></p>
+		<p>Graduation Year: <%= "#{@listing.graduation_year}" %> &nbsp;|&nbsp; Location: <%= "#{@listing.location}" %></p>
+		<p><b>Teaching Subject:</b> <%= "#{@listing.teaching_subject}" %></p>				
+		<p>Tutorial Type: <%= "#{@listing.tutorial_type}" %></p>
+	</div>	
+</div>
+
+<div class="row">	
+	<div class="col-md-8">
+		<p><h3>About Myself</h3><%= "#{@listing.about_myself}" %></p>
+		<p><h3>Tutoring Approach</h3><%= "#{@listing.tutoring_approach}" %></p>
+		<p><h3>Teaching Experience</h3><<%= "#{@listing.teaching_experience}" %></p>		
+		<p><h3>Extracurricular Interests</h3><%= "#{@listing.extracurricular_interests}" %></p>
 		<br>
 		<div class="centre">
 			<%= link_to "Request this tutor", new_listing_tutorial_request_path(@listing), class: "btn btn-primary" %>	
 		</div>
 	</div>
-</div>
+</div>		
+	
+
 
 <% if current_user == @listing.user %>
 	<%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-link" %> |

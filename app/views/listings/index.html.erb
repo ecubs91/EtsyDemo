@@ -2,24 +2,27 @@
   <h1>Discover your <br>potential</h1>
   <h2>Bridging quality tutor with <br>  talented students</h2>
 </div>
-<div class="centre">
+<div class="left">
   <div class="row">
     <% @listings.each do |listing| %>
-      <div class="col-md-3">
-        <div class="thumbnail">
-            <%= link_to image_tag(listing.image.url), listing %>
-            <div class="caption">
+      <div class="row">            
+            <div class="col-md-2">
+                <a href="/listings/<%= listing.id %>">
+                    <div class="image-photo" style="background-image: url('<%= listing.image.url %>'); width: 150px; background-size: 100%; height: 150px;">
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-8">
             <h3><%= listing.user.name %></h3>
-            <p><%= "University: #{listing.university}" %></p>
-            <p><%= "Degree Subject: #{listing.degree_subject}" %></p>  
-            <p><%= "Graduation Year: #{listing.graduation_year}" %></p>
-            <p><%= "Location: #{listing.location}" %></p>          
+            <p>University: <%= "#{listing.university}" %> &nbsp;|&nbsp; <%= "Degree Subject: #{listing.degree_subject}" %> &nbsp;|&nbsp; Graduation Year: <%= "#{listing.graduation_year}" %> &nbsp;|&nbsp; Location: <%= "#{listing.location}" %></p>  
+            <p><%= "#{listing.about_myself}" %></p>
+                   
             <% if (user_signed_in?) && (current_user == listing.user) %>
               <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %>            
               <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %> 
             <% end %>  
           </div>
-        </div> 
+        
       </div> 
     <% end %>
   </div>
