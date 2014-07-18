@@ -15,7 +15,7 @@
             <div class="col-md-8">
             <h3><%= listing.user.name %></h3>
             <p>University: <%= "#{listing.university}" %> &nbsp;|&nbsp; <%= "Degree Subject: #{listing.degree_subject}" %> &nbsp;|&nbsp; Graduation Year: <%= "#{listing.graduation_year}" %> &nbsp;|&nbsp; Location: <%= "#{listing.location}" %></p>  
-            <p><%= "#{listing.about_myself}" %></p>
+            <p><%= truncate(listing.about_myself, :length => 275) %></p>
                    
             <% if (user_signed_in?) && (current_user == listing.user) %>
               <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %>            

@@ -3,18 +3,18 @@ class TutorialRequestsController < ApplicationController
   before_action :authenticate_user!
 
   def sales
-    @tutorial_requests = Tutorial_Request.all.where(tutor: current_user).tutorial_request("created_at DESC")
+    @tutorial_requests = TutorialRequest.all.where(tutor: current_user).tutorial_request("created_at DESC")
   end
 
   def purchases
-    @tutorial_requests = Tutorial_Request.all.where(student: current_user).tutorial_request("created_at DESC")
+    @tutorial_requests = TutorialRequest.all.where(student: current_user).tutorial_request("created_at DESC")
   end
 
 
   # GET /tutorial_requests
   # GET /tutorial_requests.json
   def index
-    @tutorial_requests = Tutorial_Request.all
+    @tutorial_requests = TutorialRequest.all
   end
 
   # GET /tutorial_requests/1
@@ -24,7 +24,7 @@ class TutorialRequestsController < ApplicationController
 
   # GET /tutorial_requests/new
   def new
-    @tutorial_request = Tutorial_Request.new
+    @tutorial_request = TutorialRequest.new
     @listing = Listing.find(params[:listing_id])
   end
 
