@@ -2,6 +2,7 @@ class TutorialRequestsController < ApplicationController
   before_action :set_tutorial_request, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
+
   def sales
     @tutorial_requests = TutorialRequest.all.where(tutor: current_user).tutorial_request("created_at DESC")
   end

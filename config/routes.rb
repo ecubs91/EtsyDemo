@@ -11,8 +11,11 @@ Etsydemo::Application.routes.draw do
 
   get "pages/about"
   get "pages/contact"
+
+
   get 'sales' => "tutorial_requests#sales"
   get 'purchases' => "tutorial_requests#purchases"
+
   
 
 
