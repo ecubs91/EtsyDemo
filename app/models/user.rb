@@ -9,5 +9,6 @@ class User < ActiveRecord::Base
   has_many :listings, dependent: :destroy
   has_many :sales, class_name: "Tutorial_Request", foreign_key: "tutor_id"
   has_many :purchases, class_name: "Tutorial_Request", foreign_key: "student_id"  
+  has_many :reviews, dependent: :destroy
 
 end
