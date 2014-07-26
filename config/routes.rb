@@ -1,6 +1,8 @@
 Etsydemo::Application.routes.draw do
   
 
+  resources :reviews
+
   devise_for :users
   resources :listings do
     resources :tutorial_requests
