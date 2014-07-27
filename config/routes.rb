@@ -1,11 +1,13 @@
 Etsydemo::Application.routes.draw do
   
+  scope "(:locale)", locale: /en|zh-CN/ do
+    resources :reviews
+    devise_for :users
+    resources :listings do
+      resources :tutorial_requests
 
-  resources :reviews
+  end
 
-  devise_for :users
-  resources :listings do
-    resources :tutorial_requests
   end
 
 
