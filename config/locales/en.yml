@@ -21,3 +21,6 @@
 
 en:
   new_listing: New Listing
+  university: University %{university}
+  degree_subject: Degree Subject %{degree_subject}
+  location: Location %{location}  
