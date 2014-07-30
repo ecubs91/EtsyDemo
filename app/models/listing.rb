@@ -6,5 +6,6 @@ class Listing < ActiveRecord::Base
 
   belongs_to :user, dependent: :delete
   has_many :tutorial_requests
+  has_many :reviews
 
   end
