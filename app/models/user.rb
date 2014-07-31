@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :name, presence: true  
+  validates :first_name, :last_name, presence: true  
 
   has_many :listings, dependent: :destroy
   has_many :sales, class_name: "Tutorial_Request", foreign_key: "tutor_id"
