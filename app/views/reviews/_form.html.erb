@@ -11,10 +11,7 @@
     </div>
   <% end %>
 
-  <div class="form-group">  
-    <%= f.label :rating %><br>
-    <%= f.number_field :rating, class: "form-control" %>
-  </div>
+  <div id="star-rating"></div>
   <div class="form-group">
     <%= f.label :comment %><br>
     <%= f.text_area :comment, class: "form-control" %>
@@ -23,3 +20,11 @@
     <%= f.submit "Submit a Review", class: "btn btn-success" %>
   </div>
 <% end %>
+
+
+<script>
+$('#star-rating').raty({
+  path: 'https://dl.dropboxusercontent.com/home/Apps/Etsydemo-2016/stars'
+  scoreName: 'review[rating]'
+});
+</script>

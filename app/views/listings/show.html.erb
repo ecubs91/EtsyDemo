@@ -15,6 +15,10 @@
 		<p>Graduation Year: <%= "#{@listing.graduation_year}" %> &nbsp;|&nbsp; Location: <%= "#{@listing.location}" %></p>
 		<p><b>Teaching Subject:</b> <%= "#{@listing.teaching_subject}" %></p>				
 		<p>Tutorial Type: <%= "#{@listing.tutorial_type}" %></p>
+
+		<div class="star-rating" data-score= <%= @avg_rating %> ></div>
+		<p><%= "#{@reviews.length} reviews" %></p>
+
 	</div>	
 </div>
 
@@ -36,10 +40,18 @@
 <% if @reviews.blank? %>
 	<h3>No reviews yet. Be the first to write one!</h3>
 <% else %>
-	<% @reviews.each do |review| %>
-		<div class="star-rating" data-score= <%= review.rating %> ></div>
-		<p><%= review.comment %></p>
-	<% end %>
+	<table class="table">
+		<tbody>
+			<% @reviews.each do |review| %>
+				<tr>
+					<td>
+						<div class="star-rating" data-score= <%= review.rating %> ></div>
+						<p><%= h(review.comment).gsub(/\n/, '<br/>').html_safe %></p>
+					</tD>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>	
 <% end %>
 
 <% if current_user == @listing.user %>
