@@ -14,11 +14,11 @@
 
   <% @tutorial_requests.each do |tutorial_request| %>
     <tr>
-      <td><%= tutorial_request.tutor.name %></td>
-      <td><%= tutorial_request.subject %></td>
-      <td><%= tutorial_request.level %></td>
-      <td><%= tutorial_request.duration %></td>
-      <td><%= tutorial_request.created_at.strftime("%B %-d, %Y") %></td>     
+      <td class="center"><%= tutorial_request.tutor.name %></td>
+      <td class="center"><%= tutorial_request.subject %></td>
+      <td class="center"><%= tutorial_request.level %></td>
+      <td class="center"><%= tutorial_request.duration %></td>
+      <td class="center"><%= tutorial_request.created_at.strftime("%B %-d, %Y") %></td>     
     </tr>
   <% end %>
 </table>

@@ -4,7 +4,7 @@ Etsydemo::Application.routes.draw do
     
     devise_for :users
     resources :listings do
-      resources :tutorial_requests
+      resources :tutorial_requests, only: [:new, :create]
       resources :reviews, except: [:show, :index]
   end
 
