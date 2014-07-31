@@ -4,8 +4,13 @@
   <%= devise_error_messages! %>
 
   <div class="control-group">
-  	<%= f.label :name %>
-  	<%= f.text_field :name, autofocus: true, class: "form-control" %>
+  	<%= f.label :first_name %>
+  	<%= f.text_field :first_name, autofocus: true, class: "form-control" %>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, class: "form-control" %>
   </div>
 
   <div class="control-group">
