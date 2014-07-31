@@ -65,6 +65,7 @@ class ReviewsController < ApplicationController
     def check_user
       unless @review.user == current_user 
         redirect_to root_url, alert: "Sorry, this review belongs to someone else"
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
