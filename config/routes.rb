@@ -6,7 +6,10 @@ Etsydemo::Application.routes.draw do
     
     devise_for :users
     resources :listings
-    resources :tutors do    
+    resources :tutors do 
+      collection do 
+        get 'search'
+      end
       resources :reviews, except: [:show, :index]
   end
     resources :tutorial_requests

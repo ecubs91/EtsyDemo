@@ -4,6 +4,15 @@ class TutorsController < ApplicationController
   before_action :check_user, only: [:edit, :update, :destroy]
   # GET /tutors
   # GET /tutors.json
+
+  def search
+    if params[:search].present?
+      @tutors = Tutor.search(params[:search])
+    else
+      @tutors = Tutor.all
+    end
+  end
+
   def index
     @tutors = Tutor.all.paginate(:page => params[:page], :per_page => 10)
   end
