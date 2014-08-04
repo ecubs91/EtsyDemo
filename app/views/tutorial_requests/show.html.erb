@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @tutorial_request.subject %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @tutorial_request.level %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @tutorial_request.duration %>
+</p>
+
+<p>
+  <strong>Rate:</strong>
+  <%= @tutorial_request.rate %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @tutorial_request.location %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @tutorial_request.notes %>
+</p>
+
+<%= link_to 'Edit', edit_tutorial_request_path(@tutorial_request) %> |
+<%= link_to 'Back', tutorial_requests_path %>
