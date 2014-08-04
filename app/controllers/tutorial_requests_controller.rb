@@ -27,7 +27,6 @@ class TutorialRequestsController < ApplicationController
   # GET /tutorial_requests/new
   def new
     @tutorial_request = TutorialRequest.new
-    @listing = Listing.find(params[:listing_id])
   end
 
   # GET /tutorial_requests/1/edit

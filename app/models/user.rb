@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   validates :first_name, :last_name, presence: true  
 
-  has_one :listings, dependent: :destroy
+  has_one :tutors, dependent: :destroy
   has_many :tutorial_requests, dependent: :destroy
 
   # User can be a student, a tutor or both and can have both the tuition and tutorial request records 

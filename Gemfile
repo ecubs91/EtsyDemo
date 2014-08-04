@@ -34,6 +34,7 @@ gem 'carrierwave'
 gem "fog", "~> 1.3.1"
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
+gem 'searchkick'
 
 group :production do
 	gem 'pg'

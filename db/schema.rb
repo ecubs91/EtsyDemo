@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140804152557) do
+ActiveRecord::Schema.define(version: 20140804170739) do
 
   create_table "listings", force: true do |t|
     t.string   "name"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140804152557) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "listing_id"
+    t.integer  "tutor_id"
   end
 
   create_table "tutorial_requests", force: true do |t|
@@ -58,6 +59,27 @@ ActiveRecord::Schema.define(version: 20140804152557) do
     t.integer  "rate"
     t.string   "location"
     t.text     "notes"
+  end
+
+  create_table "tutors", force: true do |t|
+    t.string   "university"
+    t.string   "degree_subject"
+    t.string   "teaching_subject"
+    t.string   "location"
+    t.string   "tutorial_type"
+    t.string   "string"
+    t.text     "about_myself"
+    t.text     "tutoring_approach"
+    t.text     "teaching_expexperience"
+    t.text     "extracurricular_interests"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.text     "teaching_experience"
   end
 
   create_table "users", force: true do |t|
