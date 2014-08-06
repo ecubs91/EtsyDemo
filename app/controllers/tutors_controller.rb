@@ -6,11 +6,22 @@ class TutorsController < ApplicationController
   # GET /tutors.json
 
   def search
+
+    Tutor.reindex
+
     if params[:search].present?
-      @tutors = Tutor.search(params[:search])
+      @tutors = Tutor.search "#{params[:search]}", where: {
+        university: params[:university]
+      }
+
     else
       @tutors = Tutor.all
+      @tutors = Tutor.all.paginate(:page => params[:page], :per_page => 10)
     end
+  
+
+
+
   end
 
   def index
