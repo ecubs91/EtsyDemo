@@ -42,7 +42,7 @@
                 </a>
             </div>
             <div class="col-md-5">
-              <h3><%= tutor.user.first_name %></h3>
+              <h3><%= "#{tutor.user.first_name.capitalize} #{tutor.user.last_name.capitalize[0]}." %></h3>
               <p><%= t('university', university: tutor.university) %> &nbsp;|&nbsp; <%= t('degree_subject', degree_subject: tutor.degree_subject) %> &nbsp;|&nbsp; <%= t('location', location: tutor.location) %></p>  
               <p><%= truncate(tutor.about_myself, :length => 275) %></p>
                      

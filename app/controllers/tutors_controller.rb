@@ -87,11 +87,11 @@ class TutorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tutor_params
-      params.require(:tutor).permit(:university, :degree_subject, :teaching_subject, :location, :tutorial_type, :string, :about_myself, :tutoring_approach, :teaching_expexperience, :extracurricular_interests)
+      params.require(:tutor).permit(:university, :degree_subject, :teaching_subject, :location, :tutorial_type, :string, :about_myself, :tutoring_approach, :teaching_expexperience, :extracurricular_interests, :image)
     end
     
     def check_user
-      if current_user != @listing.user
+      if current_user != @tutor.user
         redirect_to root_url, alert: "Sorry this profile belongs to someone else"
       end
     end
