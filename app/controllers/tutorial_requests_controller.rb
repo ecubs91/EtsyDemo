@@ -61,6 +61,8 @@ class TutorialRequestsController < ApplicationController
       flash[:danger] = e.message
     end
 
+    TutorialRequestMailer.tutorial_request_confirmation(@user).deliver
+
     respond_to do |format|
       if @tutorial_request.save
         format.html { redirect_to root_url }

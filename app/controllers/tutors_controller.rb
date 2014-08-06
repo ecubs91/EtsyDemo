@@ -18,10 +18,6 @@ class TutorsController < ApplicationController
       @tutors = Tutor.all
       @tutors = Tutor.all.paginate(:page => params[:page], :per_page => 10)
     end
-  
-
-
-
   end
 
   def index
