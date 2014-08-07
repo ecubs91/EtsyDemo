@@ -20,7 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  new_listing: New Listing
+  post_a_tutor_profile: Post a Tutor Profile
+  write_a_review: Write a Review
+  tutorial_type: Tutorial Type
   university: University %{university}
   degree_subject: Degree Subject %{degree_subject}
   location: Location %{location}  
+  tutorial_type: Tutorial Type %{tutorial_type}
+
+
+  sign_out: Sign Out
+  sign_up: Sign Up
+  sign_in: Sign In
+  

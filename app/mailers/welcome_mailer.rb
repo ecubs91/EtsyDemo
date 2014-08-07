@@ -1,5 +1,5 @@
 class WelcomeMailer < ActionMailer::Base
-  default from: "harrylee1230@gmail.com"
+  default from: "youngtutors1230@gmail.com"
 
   def registration_confirmation(user)
     @user = user

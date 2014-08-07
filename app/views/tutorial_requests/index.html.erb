@@ -1,0 +1,62 @@
+<div class="left">
+
+  <!-- Search Form -->
+
+
+  <div class="row">
+    <div class="right"> 
+          <%= link_to new_tutorial_request_path, class: "btn btn-primary", data: { no_turbolink: true } do %>
+          <i class="glyphicon glyphicon-plus"></i> <%= t('post_a_tutorial_request') %>
+          <% end %>
+          message student
+    </div>
+  </div>
+    
+
+  <div class="row">
+    <% @tutorial_requests.each do |tutorial_request| %>
+
+      <div class="row"> 
+            <!-- Category Search -->  
+            <div class="col-md-2">                
+                <p>Sort by</p>
+                <p>Hourly Rate</p>                
+            </div>
+
+           
+            <div class="col-md-5">
+
+              <h3><%= t('subject', subject: tutorial_request.subject) %></h3>
+              <p><%= t('level', level: tutorial_request.level) %> &nbsp;|&nbsp; <%= t('duration', duration: tutorial_request.duration) %> &nbsp;|&nbsp; <%= t('rate', rate: tutorial_request.rate) %> &nbsp;|&nbsp; <%= t('location', location: tutorial_request.location) %></p>  
+              <p><%= truncate(tutorial_request.notes, :length => 275) %></p>
+                     
+              <% if (user_signed_in?) && (current_user == tutorial_request.user) %>
+                <%= link_to 'Edit', edit_tutorial_request_path(tutorial_request), class: "btn btn-link" %>            
+                <%= link_to 'Destroy', tutorial_request, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %> 
+              <% end %>  
+           </div>
+           <div class="col-md-2">
+              <%= link_to "Message", class: "btn btn-link" %> 
+           </div>        
+      </div> 
+    <% end %>
+  </div>
+</div>
+  
+<br>
+
+<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+
+<br>
+
+<% if user_signed_in? %> 
+  <%= link_to new_tutorial_request_path, class: "btn btn-primary", data: { no_turbolink: true } do %> 
+    <i class="glyphicon glyphicon-plus"></i> Post a Tutoial Request
+  <% end %>
+<% end %>
+
+<div class="centre">
+  <div class="fb-like" data-href="http://etsydemo-2016.herokuapp.com/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+</div>
+
+

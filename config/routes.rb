@@ -1,13 +1,27 @@
 Etsydemo::Application.routes.draw do
   
+<<<<<<< HEAD
   scope "(:locale)", locale: /en|zh-CN/ do
 
     devise_for :users, :controllers => { :registrations => "registrations" }
     resources :listings do
       resources :tutorial_requests, only: [:new, :create]
+=======
+  
+
+  scope "(:locale)", locale: /en|ko|zh/ do
+    
+    devise_for :users
+    resources :listings
+    resources :tutors do 
+      collection do 
+        get 'search'
+      end
+>>>>>>> db27003e0f6e06f73c999d68302fd425345614fd
       resources :reviews, except: [:show, :index]
   end
-
+    resources :tutorial_requests
+    resources :tutors
   end
 
 
@@ -19,10 +33,6 @@ Etsydemo::Application.routes.draw do
 
   get 'sales' => "tutorial_requests#sales"
   get 'purchases' => "tutorial_requests#purchases"
-
-  
-
-
 
 
   get "pages/resources"
@@ -40,9 +50,7 @@ Etsydemo::Application.routes.draw do
   get "pages/how_it_works"
   
 
-
-
-  root 'listings#index'
+  root 'pages#about'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

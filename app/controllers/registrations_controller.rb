@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class RegistrationsController < Devise::RegistrationsController
 
   def create
@@ -8,3 +9,12 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
 end
+=======
+class RegistrationsController < Devise::RegistrationsController
+
+  def create 
+    WelcomeMailer.registration_confirmation(resource.email).deliver
+  end
+
+end
+>>>>>>> db27003e0f6e06f73c999d68302fd425345614fd

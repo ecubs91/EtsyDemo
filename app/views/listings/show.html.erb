@@ -10,9 +10,8 @@
 		</div>
 	</div>	
 	<div class="col-md-8">
-		<h3><%= @listing.user.name %></h3>
-		<p>University: <%= "#{@listing.university}" %> &nbsp;|&nbsp; Degree Subject: <%= "#{@listing.degree_subject}" %></p>
-		<p>Graduation Year: <%= "#{@listing.graduation_year}" %> &nbsp;|&nbsp; Location: <%= "#{@listing.location}" %></p>
+		<h3><%= @listing.user.first_name %></h3>		
+		<p>University: <%= "#{@listing.university}" %> &nbsp;|&nbsp; Degree Subject: <%= "#{@listing.degree_subject}" %> &nbsp;|&nbsp; t('location'): <%= "#{@listing.location}" %></p>
 		<p><b>Teaching Subject:</b> <%= "#{@listing.teaching_subject}" %></p>				
 		<p>Tutorial Type: <%= "#{@listing.tutorial_type}" %></p>
 
@@ -30,12 +29,12 @@
 		<p><h3>Extracurricular Interests</h3><%= "#{@listing.extracurricular_interests}" %></p>
 		<br>
 		<div class="centre">
-			<%= link_to "Request this tutor", new_listing_tutorial_request_path(@listing), class: "btn btn-primary" %>	
+			<%= link_to "Request this tutor", new_tutorial_request_path(@listing), class: "btn btn-primary", data: { no_turbolink: true } %>	
 		</div>
 	</div>
 </div>		
-	
-<%= link_to "Write a Review", new_listing_review_path(@listing), class: "btn btn-primary" %>
+
+<%= link_to t('write_a_review'), new_listing_review_path(@listing), class: "btn btn-primary" %>
 
 <% if @reviews.blank? %>
 	<h3>No reviews yet. Be the first to write one!</h3>
@@ -74,7 +73,9 @@
 
 <script>
 $('.star-rating').raty({
-	path: 'https://dl.dropboxusercontent.com/home/Apps/Etsydemo-2016/stars',	
+	path: 'https://dl.dropboxusercontent.com/s/2ujeq5cjjbrnva0',
+	'https://dl.dropboxusercontent.com/s/47b8b0is4ku9gji/star-on.png',
+
 	readOnly: true,
 	score: function() {
     	return $(this).attr('data-score');
