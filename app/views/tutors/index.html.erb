@@ -1,16 +1,16 @@
 
   <!-- Search Form -->
 
-  <div class="row">
+
      <div class="row"> 
       <%= form_tag search_tutors_path, method: :get, class: "center" do %>
       <p>
         <%= text_field_tag :search, params[:search], class: "form-control" %>
-        <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+        <%= submit_tag "Subject Search", name: nil, class: "btn btn-default" %>
       </p>
       <% end %>  
     </div>
-  </div>
+  
 
 
 
@@ -28,9 +28,17 @@
             <div class="col-md-2">                
                 <p>Sort by</p>
                 <p>University
-               <li><%= link_to "Oxford", "/tutors/search/?university=Oxford%20University&search=#{params[:search]}" %></li>
-                -Cambridge
-                -London   </p>       
+              
+
+               <ul>
+                     <li><%= link_to "Oxford", search_tutors_path({:university => '%Oxford%'}.merge(params)) %></li>
+                                        
+                     <li><%= link_to "Cambridge University", search_tutors_path({:university => 'Cambridge University'}.merge(params)) %></li>
+                                        
+                     <li><%= link_to "London University", search_tutors_path({:university => 'London University'}.merge(params)) %>  </li>
+                  </ul>   
+
+              </p>       
 
                 <p>Curriculum<br>-Alevel<br>-IB<br>-PreU<br>-SAT<br>-University Entrance</p>
                 <p>Rating<br>-At Least 5 stars<br>-At Least 4 stars<br>-At Least 3 stars</p>
@@ -66,7 +74,8 @@
   
 <br>
 
-<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+<%= #will_paginate @tutors, renderer: BootstrapPagination::Rails 
+%>
 
 <br>
 

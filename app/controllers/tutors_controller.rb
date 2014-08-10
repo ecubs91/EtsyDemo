@@ -5,20 +5,22 @@ class TutorsController < ApplicationController
   # GET /tutors
   # GET /tutors.json
 
-  def search
 
+
+  def search
+    @filters = params.slice(:university)
     Tutor.reindex
 
     if params[:search].present?
-      @tutors = Tutor.search "#{params[:search]}", where: {
-        university: params[:university]
-      }
-
+      @tutors = Tutor.search "#", where: {:degree_subject => params[:search]}.merge(@filters)
     else
-      @tutors = Tutor.all
-      @tutors = Tutor.all.paginate(:page => params[:page], :per_page => 10)
+      @tutors = Tutor.all.where(@filters)
+      #@tutors = will_paginate @tutors_all    
     end
   end
+
+
+
 
   def index
     @tutors = Tutor.all.paginate(:page => params[:page], :per_page => 10)
