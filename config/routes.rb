@@ -1,24 +1,15 @@
 Etsydemo::Application.routes.draw do
   
-<<<<<<< HEAD
-  scope "(:locale)", locale: /en|zh-CN/ do
-
-    devise_for :users, :controllers => { :registrations => "registrations" }
-    resources :listings do
-      resources :tutorial_requests, only: [:new, :create]
-=======
-  
-
   scope "(:locale)", locale: /en|ko|zh/ do
     
-    devise_for :users
+    devise_for :users, :controllers => { :registrations => "registrations" }
     resources :listings
     resources :tutors do 
       collection do 
         get 'search'
       end
->>>>>>> db27003e0f6e06f73c999d68302fd425345614fd
-      resources :reviews, except: [:show, :index]
+
+    resources :reviews, except: [:show, :index]
   end
     resources :tutorial_requests
     resources :tutors
