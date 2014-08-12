@@ -22,9 +22,10 @@ Etsydemo::Application.routes.draw do
   get "pages/contact"
 
 
-  get 'sales' => "tutorial_requests#sales"
-  get 'purchases' => "tutorial_requests#purchases"
+  get 'tutor_history' => "tutorial_requests#tutors"
+  get 'students' => "tutorial_requests#students"
 
+  get "pages/inbox"
 
   get "pages/resources"
   get "pages/personal_statements"
@@ -39,6 +40,7 @@ Etsydemo::Application.routes.draw do
   get "pages/our_tutors"
   get "pages/book_a_tutorial"
   get "pages/how_it_works"
+  get "pages/terms_and_conditions"
   
 
   root 'pages#about'

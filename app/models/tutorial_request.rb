@@ -3,7 +3,7 @@ class TutorialRequest < ActiveRecord::Base
 
 	belongs_to :user
 	belongs_to :student, class_name: "User"
-	belongs_to :tutor, class_name: "User"
+	belongs_to :tutors, class_name: "User"
 
 end
 

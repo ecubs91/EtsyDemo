@@ -3,13 +3,11 @@ class TutorialRequestsController < ApplicationController
   before_action :authenticate_user!
   before_action :check_user, only: [:edit, :update, :destroy]
 
-
-
-  def sales
+  def tutors
     @tutorial_requests = TutorialRequest.all.where(tutor: current_user).order("created_at DESC")
   end
 
-  def purchases
+  def students
     @tutorial_requests = TutorialRequest.all.where(student: current_user).order("created_at DESC")
   end
 
