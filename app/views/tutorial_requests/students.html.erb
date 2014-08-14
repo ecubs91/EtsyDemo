@@ -8,6 +8,9 @@
     <th class="center">Subject</th>
     <th class="center">Level</th>
     <th class="center">Duration</th>
+    <th class="center">Status</th>
+    <th class="center">Action</th>
+
 
   </tr>
 
@@ -17,7 +20,22 @@
       <td class="center"><%= tutorial_request.subject %></td>
       <td class="center"><%= tutorial_request.level %></td>
       <td class="center"><%= tutorial_request.duration %></td>
-      <td class="center"><%= tutorial_request.created_at.strftime("%B %-d, %Y") %></td>     
+      <td class="center"><%= tutorial_request.created_at.strftime("%B %-d, %Y") %></td>   
+      <td class="center">
+        <!-- the status has to change depending on actions that the user makes -->
+        tutorial requested<br><!-- tutorial request made (both to openly and to a specific tutor but not yet accepted -->
+        in process<br><!-- request is accepted by a tutor and student has authorised payment -->
+        complete <!-- student marks the tutorial request as complete -->
+      </td>
+      <td class="center">
+        message<br> <!-- direct to the user's inbox where he/she 's been chatting to this tutor_ID -->
+        pay<br> <!-- direct to the page where tuition fees is stored -->
+        write a review<br> <!-- direct to new_tutor_review_path where the tutor ID matches -->
+        report dissatisfaction<br>
+      </td>
+     
+
+
     </tr>
   <% end %>
 </table>
@@ -25,5 +43,5 @@
 <br>
 
 <% if user_signed_in? %>
-  <%= link_to 'New Tutorial Request', new_listing_path, class: "btn btn-link" %>
+  <%= link_to 'New Tutorial Request', new_tutorial_request_path, class: "btn btn-link" %>
 <% end %>

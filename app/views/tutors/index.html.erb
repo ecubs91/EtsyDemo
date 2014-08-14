@@ -13,8 +13,8 @@
   
   <div class="row">
     <div class="right"> 
-          <%= link_to new_tutor_path, class: "btn btn-primary", data: { no_turbolink: true } do %>
-          <i class="glyphicon glyphicon-plus"></i> <%= t('post_a_tutor_profile') %>
+          <%= link_to new_tutorial_request_path, class: "btn btn-primary", data: { no_turbolink: true } do %>
+          <i class="glyphicon glyphicon-plus"></i> <%= t('post_a_tutorial_request') %>
           <% end %>
     </div>
   </div>
@@ -25,9 +25,7 @@
             <div class="col-md-2">                
                 <p>Sort by</p>
                 <p>University
-              
-
-               <ul>
+                  <ul>
                      <li><%= link_to "Oxford", search_tutors_path({:university => '%Oxford%'}.merge(params)) %></li>
                                         
                      <li><%= link_to "Cambridge University", search_tutors_path({:university => 'Cambridge University'}.merge(params)) %></li>
@@ -77,8 +75,8 @@
 <br>
 
 <% if user_signed_in? %> 
-  <%= link_to new_tutor_path, class: "btn btn-primary", data: { no_turbolink: true } do %> 
-    <i class="glyphicon glyphicon-plus"></i> Post a Tutor Profile
+  <%= link_to new_tutorial_request_path, class: "btn btn-primary", data: { no_turbolink: true } do %> 
+    <i class="glyphicon glyphicon-plus"></i> Post a Tutoial Request
   <% end %>
 <% end %>
 

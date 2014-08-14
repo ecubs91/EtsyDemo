@@ -8,6 +8,5 @@ class Tutor < ActiveRecord::Base
   validates :university, presence: true 
 
   belongs_to :user, dependent: :delete
-  has_many :tutorial_requests
   has_many :reviews
 end

@@ -37,14 +37,6 @@ class TutorialRequestsController < ApplicationController
     @tutorial_request = TutorialRequest.new(tutorial_request_params)
     @tutorial_request.user_id = current_user.id
 
-    @listing = Listing.find(params[:listing_id])
-    @tutor = @listing.user
-    
-
-    @tutorial_request.listing_id = @listing.id
-    @tutorial_request.student_id = current_user.id
-    @tutorial_request.tutor_id = @tutor.id
-
     Stripe.api_key = ENV["STRIPE_API_KEY"]
     token = params[:stripeToken]
 

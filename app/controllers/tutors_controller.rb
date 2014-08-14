@@ -51,7 +51,7 @@ class TutorsController < ApplicationController
   def create
     @tutor = Tutor.new(tutor_params)
 
-  @tutor.user_id = current_user.id
+    @tutor.user_id = current_user.id
    
     respond_to do |format|
       if @tutor.save
