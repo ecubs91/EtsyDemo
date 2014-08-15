@@ -1,5 +1,7 @@
 Etsydemo::Application.routes.draw do
   
+  
+
   scope "(:locale)", locale: /en|ko|zh/ do
     
     devise_for :users, :controllers => { :registrations => "registrations" }
@@ -11,8 +13,10 @@ Etsydemo::Application.routes.draw do
 
     resources :reviews, except: [:show, :index]
   end
-    resources :tutorial_requests
-    resources :tutors
+    resources :tutorial_requests do
+    resources :proposals 
+  end
+    
   end
 
 
@@ -20,10 +24,11 @@ Etsydemo::Application.routes.draw do
 
   get "pages/about"
   get "pages/contact"
+  get 'accept' => "tutorial_request#2#proposals#new"
 
 
-  get 'tutor_history' => "tutorial_requests#tutors"
-  get 'students' => "tutorial_requests#students"
+  get 'tutorspage' => "tutorial_requests#tutors"
+  get 'studentspage' => "tutorial_requests#students"
 
   get "pages/inbox"
 

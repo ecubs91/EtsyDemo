@@ -30,5 +30,8 @@
   <%= @tutorial_request.notes %>
 </p>
 
+<%= link_to "write a proposal", new_tutorial_request_proposal_path(@tutorial_request), class: "btn btn-primary" %>
+
+
 <%= link_to 'Edit', edit_tutorial_request_path(@tutorial_request) %> |
 <%= link_to 'Back', tutorial_requests_path %>

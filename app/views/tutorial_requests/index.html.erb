@@ -25,7 +25,8 @@
            
             <div class="col-md-5">
 
-              <h3><%= t('subject', subject: tutorial_request.subject) %></h3>
+              <h3><%= tutorial_request.subject %>
+                <a href="/tutorial_requests/<%= tutorial_request.id %>"></h3>
               <p><%= t('level', level: tutorial_request.level) %> &nbsp;|&nbsp; <%= t('duration', duration: tutorial_request.duration) %> &nbsp;|&nbsp; <%= t('rate', rate: tutorial_request.rate) %> &nbsp;|&nbsp; <%= t('location', location: tutorial_request.location) %></p>  
               <p><%= truncate(tutorial_request.notes, :length => 275) %></p>
                      
@@ -35,7 +36,8 @@
               <% end %>  
            </div>
            <div class="col-md-2">
-              <%= link_to "Write Tutorial Proposal", class: "btn btn-link" %> 
+            
+              <%= link_to "write a proposal", new_tutorial_request_proposal_path(tutorial_request), class: "btn btn-primary" %>
            </div>        
       </div> 
     <% end %>

@@ -9,4 +9,5 @@ class Tutor < ActiveRecord::Base
 
   belongs_to :user, dependent: :delete
   has_many :reviews
+  
 end

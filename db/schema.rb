@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140812154339) do
+ActiveRecord::Schema.define(version: 20140814115235) do
 
   create_table "listings", force: true do |t|
     t.string   "name"
@@ -82,13 +82,21 @@ ActiveRecord::Schema.define(version: 20140812154339) do
 
   add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id"
 
+  create_table "proposals", force: true do |t|
+    t.integer  "tutor_id"
+    t.integer  "tutorial_request_id"
+    t.text     "message"
+    t.boolean  "success"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "reviews", force: true do |t|
     t.integer  "rating"
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "listing_id"
     t.integer  "tutor_id"
   end
 
@@ -98,7 +106,6 @@ ActiveRecord::Schema.define(version: 20140812154339) do
     t.string   "duration"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "listing_id"
     t.integer  "tutor_id"
     t.integer  "student_id"
     t.integer  "user_id"

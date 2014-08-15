@@ -37,25 +37,11 @@ class TutorialRequestsController < ApplicationController
     @tutorial_request = TutorialRequest.new(tutorial_request_params)
     @tutorial_request.user_id = current_user.id
 
-    Stripe.api_key = ENV["STRIPE_API_KEY"]
-    token = params[:stripeToken]
 
-    begin
-      charge = Stripe::Charge.create(
-        :amount => (@listing.price * 100).floor,
-        :currency => "usd",
-        :card => token
-        )
-      flash[:notice] = "Thanks for ordering!"
-    rescue Stripe::CardError => e
-      flash[:danger] = e.message
-    end
-
-    TutorialRequestMailer.tutorial_request_confirmation(@user).deliver
-
+    
     respond_to do |format|
       if @tutorial_request.save
-        format.html { redirect_to root_url }
+        format.html { redirect_to root_url, notice: 'Tutor was successfully created.' }
         format.json { render action: 'show', status: :created, location: @tutorial_request }
       else
         format.html { render action: 'new' }

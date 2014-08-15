@@ -4,7 +4,7 @@
 
 <table class="table table-striped table-bordered">
   <tr>
-    <th class="center">Tutor</th>
+    
     <th class="center">Subject</th>
     <th class="center">Level</th>
     <th class="center">Duration</th>
@@ -13,15 +13,10 @@
 
 
   </tr>
-   <!-- using the tutor_id from tutorial_reqeust table, find user_id to find user first and last names -->
-  <!--
-    @tutor = Tutor.find(tutorial_request.tutor_id)
-    @user = User.find(tutor.user_id) 
- -->
 
+  <!-- list tutorial requests for which my proposals have been successful -->
   <% @tutorial_requests.each do |tutorial_request| %>
     <tr>
-      
       <td class="center"><%= tutorial_request.subject %></td>
       <td class="center"><%= tutorial_request.level %></td>
       <td class="center"><%= tutorial_request.duration %></td>
@@ -47,7 +42,3 @@
 </table>
 
 <br>
-
-<% if user_signed_in? %>
-  <%= link_to 'New Tutorial Request', new_tutorial_request_path, class: "btn btn-link" %>
-<% end %>
