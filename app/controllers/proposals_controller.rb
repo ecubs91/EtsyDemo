@@ -1,5 +1,6 @@
 class ProposalsController < ApplicationController
   before_action :set_proposal, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
   before_action :set_tutorial_request
 
   # GET /proposals

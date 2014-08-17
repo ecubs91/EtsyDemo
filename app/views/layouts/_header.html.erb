@@ -4,19 +4,45 @@
                         <li><a href="#" class="hover-color"><i class="ion-ios7-email-outline"></i> mail@domain.com</a></li>
                         <li><i class="ion-iphone"></i> +91 (123) 456 78 90</li>
                     </ul>  
-                    <div class="pull-right">
-                        <ul class="info list-inline hidden-xs">
-                            <li><a href="#" class="hover-color">Create an account?</a></li>
-                            <li><a href="#" class="hover-color"><i class="ion-man"></i> Login</a></li>
-                        </ul>
-                    </div>
+            <div class="pull-right">
+                    <ul class="info list-inline hidden-xs">
+                         <% if user_signed_in? %>
+
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Tuition <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                              <li><%= link_to "Tutor page", tutorspage_path %></li>                  
+                              <li><%= link_to " Student page", studentspage_path %></li>
+                            </ul>
+                          </li>          
+                          <li><%= link_to "Inbox", pages_inbox_path %></li>
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.first_name %><b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                              <li>
+                                My Tutor Profile
+                              </li>
+                              <li><%= link_to edit_user_registration_path, data: { no_turbolink: true } do %>
+                                <i class="glyphicon glyphicon-wrench"></i> t('Account Setting')
+                               <% end %>
+                              </li>
+                              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                            </ul>
+                          </li>         
+                          
+                        <% else %>
+                          <li><%= link_to t('sign_up'), new_user_registration_path %></li>
+                          <li class="hover-color"></i><%= link_to t('sign_in'), new_user_session_path %></li>
+                        <% end %>                        
+                    </ul>
+            </div>
       </div><!--container end-->
 </div><!--topbar end-->
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
+<div class="navbar navbar-default" role="navigation">
+  <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">  
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -26,46 +52,14 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        
-      
+    <div class="navbar-collapse collapse">       
+
+      <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Find Tutors", tutors_path %></li>
         <li><%= link_to "Find Students", tutorial_requests_path %></li>
         <li><%= link_to "How it works", pages_how_it_works_path %></li>
-        <li><%= link_to "Contact", pages_contact_path %></li>
-      </ul> 
-
-      <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Tuition <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Tutor page", tutorspage_path %></li>
-              <li><%= link_to " Student page", studentspage_path %></li>
-            </ul>
-          </li>          
-          <li><%= link_to "Inbox", pages_inbox_path %></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.first_name %><b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li>
-                My Tutor Profile
-              </li>
-              <li><%= link_to edit_user_registration_path, data: { no_turbolink: true } do %>
-                <i class="glyphicon glyphicon-wrench"></i> t('Account Setting')
-               <% end %>
-              </li>
-              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-            </ul>
-          </li>         
-          
-        <% else %>
-          <li><%= link_to t('sign_up'), new_user_registration_path %></li>
-          <li><%= link_to t('sign_in'), new_user_session_path %></li>
-        <% end %>
-
+        <li><%= link_to "Contact", pages_contact_path %></li>      
       </ul>
     </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>  
+  </div><!-- /.container -->
+</div>  

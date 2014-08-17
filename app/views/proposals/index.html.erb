@@ -10,13 +10,17 @@
             <p>Teaching subject: <%= @tutor.teaching_subject %></p>
             <p>Location: <%= @tutor.location %></p>
         </div>
+
   
     
       <%= proposal.message %>
+      <br>
+     <h4><b>Accept Proposal</b></h4> 
+   
     </div>
   <% end %>
 <br>
 
 <!-- accept proposal = mark this proposal as successful and direct to payment authorization page -->
 
-<%= link_to 'New Proposal', '#' %>
+
