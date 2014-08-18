@@ -6,25 +6,26 @@ class TutorsController < ApplicationController
   # GET /tutors.json
 
 
-
   def search
-    @filters = params.slice(:university)
-    Tutor.reindex
+      @filters = params.slice(:university)
 
-    if params[:search].present?
-      @tutors = Tutor.search "#", where: {:degree_subject => params[:search]}.merge(@filters)
-    else
-      @tutors = Tutor.all.where(@filters)
-      #@tutors = will_paginate @tutors_all    
-    end
+      if params[:search].present?
+        @tutors = Tutor.where("teaching_subject LIKE :teaching_subject",  {teaching_subject: "%#{params[:search]}%"}).where(@filters)
+        @tutors = Tutor.where("degree_subject LIKE :degree_subject",  {degree_subject: "%#{params[:search]}%"}).where(@filters)
+
+      else
+        @tutors = Tutor.where(@filters).paginate(:page => params[:page], :per_page => 10)
+      end
   end
-
-
-
 
   def index
-    @tutors = Tutor.all.paginate(:page => params[:page], :per_page => 10)
+    @tutors = Tutor.where(@filters).paginate(:page => params[:page], :per_page => 10)
   end
+
+  def autocomplete
+    render json: Tutor.where("teaching_subject LIKE :teaching_subject",  {teaching_subject: "%#{params[:search]}%"}).where(@filters)
+  end
+
 
   # GET /tutors/1
   # GET /tutors/1.json

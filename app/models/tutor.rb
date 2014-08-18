@@ -1,6 +1,6 @@
 class Tutor < ActiveRecord::Base
 
-	searchkick
+	searchkick text_start: [:teaching_subject]
 	
   has_attached_file :image, :styles => { :medium => "200x200>", :thumb => "100x100>" }, :default_url => "default.jpg", 
   					:storage => :dropbox,
