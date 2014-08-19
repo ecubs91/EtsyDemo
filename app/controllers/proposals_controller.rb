@@ -8,7 +8,7 @@ class ProposalsController < ApplicationController
 
 
   def accept
-    
+    #@proposal.accept = , notice: 'Proposal was successfully accepted' 
   end
   
   def index
@@ -33,8 +33,8 @@ class ProposalsController < ApplicationController
   # POST /proposals.json
   def create
     @proposal = Proposal.new(proposal_params)
-
     @proposal.tutorial_request_id = @tutorial_request.id
+
     respond_to do |format|
       if @proposal.save
         format.html { redirect_to tutorial_request_path(@tutorial_request), notice: 'Proposal was successfully created.' }

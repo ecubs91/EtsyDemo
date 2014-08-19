@@ -15,7 +15,7 @@
     
       <%= proposal.message %>
       <br>
-     <h4><b>Accept Proposal</b></h4> 
+     <%= link_to "Accept Proposal", tutorial_request_proposal_accept_path, class: "btn btn-success" %> 
    
     </div>
   <% end %>

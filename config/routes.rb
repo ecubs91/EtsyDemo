@@ -14,7 +14,9 @@ Etsydemo::Application.routes.draw do
     resources :reviews, except: [:show, :index]
   end
     resources :tutorial_requests do
-    resources :proposals 
+    resources :proposals do
+      post 'accept'
+    end    
   end
     
   end
