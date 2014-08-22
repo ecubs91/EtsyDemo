@@ -1,15 +1,14 @@
 <div class="centre">
-  <h2>My Student Page</h2>
+  <h2>Tutor Page</h2>
 </div>
 
 <table class="table table-striped table-bordered">
   <tr>
     
     <th class="center">Subject</th>
-    <th class="center">Level</th>
     <th class="center">Duration</th>
     <th class="center">Status</th>
-    <th class="center">Action</th>
+    <th class="center">Bill</th>
 
 
   </tr>
@@ -18,7 +17,6 @@
   <% @tutorial_requests.each do |tutorial_request| %>
     <tr>
       <td class="center"><%= tutorial_request.subject %></td>
-      <td class="center"><%= tutorial_request.level %></td>
       <td class="center"><%= tutorial_request.duration %></td>
       <td class="center"><%= tutorial_request.created_at.strftime("%B %-d, %Y") %></td>   
       <td class="center">
@@ -28,11 +26,9 @@
         complete <!-- student marks the tutorial request as complete -->
       </td>
       <td class="center">
-        proposals<br>
-        message<br> <!-- direct to the user's inbox where he/she 's been chatting to this tutor_ID -->
-        pay<br> <!-- direct to the page where tuition fees is stored -->
-        write a review<br> <!-- direct to new_tutor_review_path where the tutor ID matches -->
-        report dissatisfaction<br>
+        message<br> <!-- direct to the user's inbox where he/she 's been chatting to this student_ID -->
+        bill<br> <!-- direct to the page where to fill out bank account details -->
+        
       </td>
      
 

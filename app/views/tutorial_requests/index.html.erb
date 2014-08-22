@@ -18,8 +18,7 @@
       <div class="row"> 
             <!-- Category Search -->  
             <div class="col-md-2">                
-                <p>Sort by</p>
-                <p>Hourly Rate</p>                
+                           
             </div>
 
            
@@ -37,6 +36,7 @@
            </div>
            <div class="col-md-2">
             
+              <!-- only tutors can write proposals, if a user doesn't have tutor profile, redirection to homepage with notification -->
               <%= link_to "write a proposal", new_tutorial_request_proposal_path(tutorial_request), class: "btn btn-primary" %>
            </div>        
       </div> 
