@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @disussion_forum.subject %>
+</p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @disussion_forum.question %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @disussion_forum.details %>
+</p>
+
+<%= link_to 'Edit', edit_disussion_forum_path(@disussion_forum) %> |
+<%= link_to 'Back', disussion_forums_path %>

@@ -2,6 +2,8 @@ Etsydemo::Application.routes.draw do
   
   
 
+  resources :disussion_forums
+
   scope "(:locale)", locale: /en|ko|zh/ do
     
     devise_for :users, :controllers => { :registrations => "registrations" }

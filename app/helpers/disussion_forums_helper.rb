@@ -1,0 +1,2 @@
+module DisussionForumsHelper
+end
