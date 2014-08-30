@@ -9,7 +9,18 @@ class DisussionForumsController < ApplicationController
 
   # GET /disussion_forums/1
   # GET /disussion_forums/1.json
-  def show
+  def show  
+    @disussion = DisussionForum.find(1)
+    #@user_who_commented = current_user
+    #@comment = Comment.build_from( @disussion, @user_who_commented.id, "This is a testing comment 2" )
+    #@comment.save
+    #@comment.move_to_child_of(Comment.first)
+
+    @all_comments = @disussion.comment_threads
+    @root_comments = @disussion.root_comments
+  end
+
+  def create_disussion_forum_comment
   end
 
   # GET /disussion_forums/new

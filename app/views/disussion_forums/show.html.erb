@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+
 <p>
   <strong>Subject:</strong>
   <%= @disussion_forum.subject %>
@@ -14,6 +15,24 @@
   <strong>Details:</strong>
   <%= @disussion_forum.details %>
 </p>
+
+
+
+<br>==================================== <b> all comments and childs </b> ==================================<br>
+<%#= @comment.move_to_child_of(Comment.first).inspect %>
+<% @all_comments.each do |comment| %>
+    <div style="color:red;"><b><%= comment.body%></b></div><br>
+<% end %>
+
+
+<br>==================================== <b> only the root comments </b> ==================================<br>
+<%= @root_comments.inspect  %>
+<br>==================================== <b> @comment.has_children? </b> ==================================<br>
+<%= Comment.first.has_children? %>
+<br>==================================== <b> @comment.children.size </b> ==================================<br>
+<%= Comment.first.children.size %>
+<br>==================================== <b> @comment.children </b> ==================================<br>
+<%= Comment.first.children.inspect %>
 
 <%= link_to 'Edit', edit_disussion_forum_path(@disussion_forum) %> |
 <%= link_to 'Back', disussion_forums_path %>

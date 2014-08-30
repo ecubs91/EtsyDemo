@@ -21,13 +21,12 @@
       <td class="center"><%= tutorial_request.created_at.strftime("%B %-d, %Y") %></td>   
       <td class="center">
         <!-- the status has to change depending on actions that the user makes -->
-        tutorial requested<br><!-- if proposal has been accepted between start and end date, show in process, but if beyond the end date, complete, otherwise, show tutorial requested -->
-        in process<br><!-- request is accepted by a tutor and student has authorised payment -->
+        in process<br><!-- if tutor's status is 'I'm available' and request is made -->
         complete <!-- student marks the tutorial request as complete -->
       </td>
       <td class="center">
-        message<br> <!-- direct to the user's inbox where he/she 's been chatting to this student_ID -->
-        bill<br> <!-- direct to the page where to fill out bank account details -->
+        <br> 
+        bill<br> <!-- bill function becomes active if tutorial request status is complete and clicking bill directs the user to the page to fill out bank account details. Otherwise bill field is shown as blank -->
         
       </td>
      

@@ -1,6 +1,11 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
+  acts_as_messageable
+
+
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -8,6 +13,7 @@ class User < ActiveRecord::Base
 
   has_one :tutor, dependent: :destroy
   has_many :tutorial_requests, dependent: :destroy
+  has_many :enquiries, dependent: :destroy
 
 
   # User can be a student, a tutor or both and can have both the tuition and tutorial request records 
@@ -15,5 +21,17 @@ class User < ActiveRecord::Base
   has_many :tutors, class_name: "Tutorial_Request", foreign_key: "tutor_id"
   has_many :students, class_name: "Tutorial_Request", foreign_key: "student_id"  
   has_many :reviews, dependent: :destroy
-  
+
+  def name
+    email
+  end
+
+  def mailboxer_email(object)
+    email
+  end
+
+  def members
+    a = self.first_name
+    a.conversation.inbox
+  end
 end
