@@ -4,7 +4,8 @@ Etsydemo::Application.routes.draw do
     
     devise_for :users, :controllers => { :registrations => "registrations" }
     resources :listings
-    resources :tutors do 
+    resources :tutors do
+      get :autocomplete_tutor_teaching_subject, :on => :collection
       collection do 
         get 'search'
       end
@@ -14,6 +15,7 @@ Etsydemo::Application.routes.draw do
     resources :tutorial_requests
     resources :tutors
   end
+
 
 
 
