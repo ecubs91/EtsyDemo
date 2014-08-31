@@ -29,15 +29,12 @@
                   <ul>
                      <li><%= link_to "Oxford", search_tutors_path({:university => 'Oxford'}.merge(params)) %></li>
                                         
-                     <li><%= link_to "Cambridge University", search_tutors_path({:university => 'Cambridge University'}.merge(params)) %></li>
-                                        
-                     <li><%= link_to "London University", search_tutors_path({:university => 'London University'}.merge(params)) %>  </li>
+                     <li><%= link_to "Cambridge", search_tutors_path({:university => 'Cambridge'}.merge(params)) %></li>                                        
+                     
                   </ul>              
                 </p>       
                 <p>Curriculum<br>-Alevel<br>-IB<br>-PreU<br>-SAT<br>-University Entrance</p>
-                <p>Rating<br>-At Least 5 stars<br>-At Least 4 stars<br>-At Least 3 stars</p>
-                <p>Tutorial Type<br>-Online<br>-Meet in person</p>   
-                <p>Location</p>             
+                          
             </div>
 
         <% @tutors.each do |tutor| %>
