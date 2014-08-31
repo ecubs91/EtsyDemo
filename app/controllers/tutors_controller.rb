@@ -10,9 +10,8 @@ class TutorsController < ApplicationController
       @filters = params.slice(:university)
 
       if params[:search].present?
-        @tutors = Tutor.where("teaching_subject LIKE :teaching_subject",  {teaching_subject: "%#{params[:search]}%"}).where(@filters)
-        @tutors = Tutor.where("degree_subject LIKE :degree_subject",  {degree_subject: "%#{params[:search]}%"}).where(@filters)
-
+       
+        @tutors = Tutor.where("teaching_subject LIKE :teaching_subject or degree_subject LIKE :teaching_subject",  {teaching_subject: "%#{params[:search]}%"}).where(@filters)
       else
         @tutors = Tutor.where(@filters).paginate(:page => params[:page], :per_page => 10)
       end
