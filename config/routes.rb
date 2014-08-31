@@ -2,8 +2,19 @@ Etsydemo::Application.routes.draw do
   
 
   scope "(:locale)", locale: /en|ko|zh/ do
-    resources :conversations
-    resources :messages
+    
+    resources :messages do
+      member do
+        post :new
+      end
+    end
+
+    resources :conversations do
+      member do
+        post :reply
+      end
+    end
+
     resources :tutorial_requests
     resources :disussion_forums
     
