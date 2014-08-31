@@ -9,6 +9,7 @@ class DisussionForumsController < ApplicationController
 
   # GET /disussion_forums/1
   # GET /disussion_forums/1.json
+
   def show
     @disussion = DisussionForum.find(params[:id])
     @all_comments = @disussion.comment_threads

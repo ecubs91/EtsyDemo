@@ -1,7 +1,7 @@
 class ProposalsController < ApplicationController
   before_action :set_proposal, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :set_tutorial_request
+  before_action :set_enquiry
 
   # GET /proposals
   # GET /proposals.json
@@ -33,11 +33,11 @@ class ProposalsController < ApplicationController
   # POST /proposals.json
   def create
     @proposal = Proposal.new(proposal_params)
-    @proposal.tutorial_request_id = @tutorial_request.id
+    @proposal.enquiry_id = @enquiry.id
 
     respond_to do |format|
       if @proposal.save
-        format.html { redirect_to tutorial_request_path(@tutorial_request), notice: 'Proposal was successfully created.' }
+        format.html { redirect_to enquiry_path(@enquiry), notice: 'Proposal was successfully created.' }
         format.json { render action: 'show', status: :created, location: @proposal }
       else
         format.html { render action: 'new' }
@@ -75,12 +75,12 @@ class ProposalsController < ApplicationController
     def set_proposal
       @proposal = Proposal.find(params[:id])
     end
-    def set_tutorial_request
-      @tutorial_request = TutorialRequest.find(params[:tutorial_request_id])
+    def set_enquiry
+      @enquiry = Enquiry.find(params[:enquiry_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def proposal_params
-      params.require(:proposal).permit(:tutor_id, :tutorial_request_id, :message, :success)
+      params.require(:proposal).permit(:tutor_id, :enquiry_id, :message, :success)
     end
 end

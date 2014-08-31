@@ -1,3 +1,5 @@
+<% if current_user %>
+
 <p><span class="txt_style_1">Standford, Economics</span>
 </br></br>
 <b>Tell us what makes Stanford a good place for you.</b>
@@ -31,3 +33,7 @@ The residuals are sufficiently small, implying a strong correlation!
 Normally, I’d do some number crunching at this point to find the exact correlation. However, since I have not 
 yet experienced Stanford, I cannot guarantee the randomness of the aforementioned data. To determine the true 
 correlation, I first require a Stanford education.</p>
+
+<% else %>
+Please <%= link_to "sign in", new_user_session_path %> to view more resources offered
+<% end %>

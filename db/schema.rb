@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140824151433) do
+ActiveRecord::Schema.define(version: 20140830131914) do
 
   create_table "comments", force: true do |t|
     t.integer  "commentable_id",   default: 0
@@ -36,6 +36,21 @@ ActiveRecord::Schema.define(version: 20140824151433) do
     t.text     "details"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "enquiries", force: true do |t|
+    t.string   "subject"
+    t.string   "level"
+    t.string   "location"
+    t.string   "duration"
+    t.string   "start_date"
+    t.string   "tuition_fee"
+    t.text     "note"
+    t.boolean  "tutor_availablity"
+    t.boolean  "tutorial_request"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "listings", force: true do |t|
@@ -114,6 +129,7 @@ ActiveRecord::Schema.define(version: 20140824151433) do
     t.boolean  "success"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "enquiry_id"
   end
 
   create_table "reviews", force: true do |t|

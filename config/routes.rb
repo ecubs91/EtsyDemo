@@ -1,6 +1,6 @@
 Etsydemo::Application.routes.draw do
   
-  
+
 
   resources :disussion_forums do
     collection do
@@ -9,6 +9,21 @@ Etsydemo::Application.routes.draw do
   end
 
   scope "(:locale)", locale: /en|ko|zh/ do
+    
+    resources :messages do
+      member do
+        post :new
+      end
+    end
+
+    resources :conversations do
+      member do
+        post :reply
+      end
+    end
+
+    resources :tutorial_requests
+    resources :disussion_forums
     
     devise_for :users, :controllers => { :registrations => "registrations" }
     resources :listings
@@ -19,7 +34,8 @@ Etsydemo::Application.routes.draw do
 
     resources :reviews, except: [:show, :index]
   end
-    resources :tutorial_requests do
+  
+    resources :enquiries do
     resources :proposals do
       post 'accept'
     end    
@@ -56,7 +72,7 @@ Etsydemo::Application.routes.draw do
   get "pages/terms_and_conditions"
   
 
-  root 'pages#about'
+  root 'pages#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
