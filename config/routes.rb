@@ -19,7 +19,7 @@ Etsydemo::Application.routes.draw do
     resources :disussion_forums
     
     devise_for :users, :controllers => { :registrations => "registrations" }
-    resources :listings
+   
     resources :tutors do 
       collection do 
         get 'search'
