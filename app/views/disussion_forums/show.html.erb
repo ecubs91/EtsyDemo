@@ -15,5 +15,20 @@
   <%= @disussion_forum.details %>
 </p>
 
+<p>
+  <strong>Comments: </strong><br>
+  <% @all_comments.each do |comment| %>
+    <%= comment.body %><br>
+  <% end %>
+</p>
+
+
+<%= form_for "", :url => create_disussion_forum_comment_disussion_forums_path, :method=>:post do |f| %>
+    <%= f.hidden_field "id", :value => @disussion.id %>
+    Give me your comment : <%= f.text_area "comment_content" %><br>
+    <%= f.submit %>
+<% end %>
+
+
 <%= link_to 'Edit', edit_disussion_forum_path(@disussion_forum) %> |
 <%= link_to 'Back', disussion_forums_path %>

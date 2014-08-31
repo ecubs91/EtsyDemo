@@ -10,6 +10,9 @@ class DisussionForumsController < ApplicationController
   # GET /disussion_forums/1
   # GET /disussion_forums/1.json
   def show
+    @disussion = DisussionForum.find(params[:id])
+    @all_comments = @disussion.comment_threads
+    @root_comments = @disussion.root_comments
   end
 
   # GET /disussion_forums/new
@@ -59,6 +62,14 @@ class DisussionForumsController < ApplicationController
       format.html { redirect_to disussion_forums_url }
       format.json { head :no_content }
     end
+  end
+
+  def create_disussion_forum_comment
+    @disussion = DisussionForum.find(params[:id])
+    @user_who_commented = current_user
+    @comment = Comment.build_from( @disussion, @user_who_commented.id, params[:comment_content] )
+    @comment.save
+    redirect_to :back
   end
 
   private
