@@ -16,17 +16,8 @@
 }
 
 
-.txt_style_1 {
-	color: #3b5998;
-	font-weight: bold;
-}
 
-.jumbotron {
-	background-image: url('https://dl.dropboxusercontent.com/s/d0tw1cifkgyjw4x/jumbotron.jpg'); 
-	h1, h2 {
-	font-family: guardian-egyptt, georgia, serif;
-	}
-}
+
 
 .col-md-2 img {
   width: 100%;
@@ -39,4 +30,20 @@
 	margin-top: 0px; 
 	}
 
+.centre {
+	text-align: center;
+}
+
+.col-md-8 {
+	p {
+		font-size: 12px;
+		font-family: Helvetica;
+		line-heigh: 20px;		
+		}
+	
+	h3 {
+		font-size: 15px;
+		color: #3b5998;
+		}
+}
 

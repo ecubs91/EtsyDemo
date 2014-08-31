@@ -9,8 +9,15 @@
 
 }
 
-.space-70{
-    width:100%;
-    height: 50px;
-    clear: both; 
-    }
+.col-md-6 {
+	h2 {font-size: 45px;
+		font-family: lato;}
+	h5 {font-size: 25px;
+		font-family: lato;}
+	p {
+		font-size: 17px;
+		font-family: Lato;
+		line-heigh: 20px;
+	}
+}
+
