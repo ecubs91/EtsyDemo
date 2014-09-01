@@ -1,6 +1,13 @@
 Etsydemo::Application.routes.draw do
   
 
+
+  resources :disussion_forums do
+    collection do
+      post "create_disussion_forum_comment"
+    end
+  end
+
   scope "(:locale)", locale: /en|ko|zh/ do
     
     resources :messages do

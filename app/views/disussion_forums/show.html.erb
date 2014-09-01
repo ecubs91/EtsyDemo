@@ -17,22 +17,20 @@
 </p>
 
 
+<p>
+  <strong>Comments: </strong><br>
+  <% @all_comments.each do |comment| %>
+    <%= comment.body %><br>
+  <% end %>
+</p>
 
-<br>==================================== <b> all comments and childs </b> ==================================<br>
-<%#= @comment.move_to_child_of(Comment.first).inspect %>
-<% @all_comments.each do |comment| %>
-    <div style="color:red;"><b><%= comment.body%></b></div><br>
+
+<%= form_for "", :url => create_disussion_forum_comment_disussion_forums_path, :method=>:post do |f| %>
+    <%= f.hidden_field "id", :value => @disussion.id %>
+    Give me your comment : <%= f.text_area "comment_content" %><br>
+    <%= f.submit %>
 <% end %>
 
-
-<br>==================================== <b> only the root comments </b> ==================================<br>
-<%= @root_comments.inspect  %>
-<br>==================================== <b> @comment.has_children? </b> ==================================<br>
-<%= Comment.first.has_children? %>
-<br>==================================== <b> @comment.children.size </b> ==================================<br>
-<%= Comment.first.children.size %>
-<br>==================================== <b> @comment.children </b> ==================================<br>
-<%= Comment.first.children.inspect %>
 
 <%= link_to 'Edit', edit_disussion_forum_path(@disussion_forum) %> |
 <%= link_to 'Back', disussion_forums_path %>
