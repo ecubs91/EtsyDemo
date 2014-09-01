@@ -1,3 +1,6 @@
+<% if current_user %>
+
+<div class="container">
 <span class="txt_style_1">Maths</span></br>
    Do there exist 2 integers, x and y, such that x<sup>2</sup>+y<sup>2</sup>= 1000 003?</br></br>
 
@@ -33,3 +36,9 @@ did it, would that be a just and effective law?</br></br>
      A ball bearing is flying through space (vacuum and no overall gravitational field). 
      It heads towards a doughnut, through its centre and out the other side. Draw graphs of 
      1) speed vs time and 2) acceleration vs time</br></br>
+
+
+
+<% else %>
+Please <%= link_to "sign in", new_user_session_path %> to view more resources offered
+<% end %>

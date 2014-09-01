@@ -2,6 +2,8 @@ Etsydemo::Application.routes.draw do
   
 
 
+  resources :questions
+
   resources :disussion_forums do
     collection do
       post "create_disussion_forum_comment"

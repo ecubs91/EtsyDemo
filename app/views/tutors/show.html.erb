@@ -1,22 +1,24 @@
-<div class="row">
-  <div class="tutor info">
-    <div class="col-md-2">
-      <div class="thumbnail"> 
-        <a href="/tutors/<%= @tutor.id %>">
-          <div class="image-photo" style="background-image: url('<%= @tutor.image.url %>'); width: 150px; background-size: 100%; height: 150px;">
-          </div>
-        </a>
-      </div>
-    </div>  
-    <div class="col-md-8">
-      <h3><%= "#{@tutor.user.first_name.capitalize} #{@tutor.user.last_name.capitalize[0]}." %></h3>   
-      <p>University: <%= "#{@tutor.university}" %> &nbsp;|&nbsp; Degree Subject: <%= "#{@tutor.degree_subject}" %> &nbsp;|&nbsp; t('location'): <%= "#{@tutor.location}" %></p>
-      <p><b>Teaching Subject:</b> <%= "#{@tutor.teaching_subject}" %></p>       
-      <p>Tutorial Type: <%= "#{@tutor.tutorial_type}" %></p>
+<div class="jumbotron">
+  <div class="row">
+    <div class="tutor info">
+      <div class="col-md-2">
+        <div class="thumbnail"> 
+          <a href="/tutors/<%= @tutor.id %>">
+            <div class="image-photo" style="background-image: url('<%= @tutor.image.url %>'); width: 150px; background-size: 100%; height: 150px;">
+            </div>
+          </a>
+        </div>
+      </div>  
+      <div class="col-md-8">
+        <h3><%= "#{@tutor.user.first_name.capitalize} #{@tutor.user.last_name.capitalize[0]}." %></h3>   
+        <p>University: <%= "#{@tutor.university}" %> &nbsp;|&nbsp; Degree Subject: <%= "#{@tutor.degree_subject}" %> &nbsp;|&nbsp; t('location'): <%= "#{@tutor.location}" %></p>
+        <p><b>Teaching Subject:</b> <%= "#{@tutor.teaching_subject}" %></p>       
+        <p>Tutorial Type: <%= "#{@tutor.tutorial_type}" %></p>
 
-      <div class="star-rating" data-score= <%= @avg_rating %> ></div>
-      <p><%= "#{@reviews.length} reviews" %></p>
-    </div>  
+        <div class="star-rating" data-score= <%= @avg_rating %> ></div>
+        <p><%= "#{@reviews.length} reviews" %></p>
+      </div>  
+    </div>
   </div>
 </div>
 
@@ -24,7 +26,7 @@
   <div class="col-md-8">
     <p><h3>About Myself</h3><%= "#{@tutor.about_myself}" %></p>
     <p><h3>Tutoring Approach</h3><%= "#{@tutor.tutoring_approach}" %></p>
-    <p><h3>Teaching Experience</h3><<%= "#{@tutor.teaching_experience}" %></p>    
+    <p><h3>Teaching Experience</h3><%= "#{@tutor.teaching_experience}" %></p>    
     <p><h3>Extracurricular Interests</h3><%= "#{@tutor.extracurricular_interests}" %></p>
     <br>
     <div class="centre">

@@ -14,10 +14,10 @@
 
 
 .jumbotron {
-	background-image: url('https://dl.dropboxusercontent.com/s/d0tw1cifkgyjw4x/jumbotron.jpg'); 
 	h1, h2 {
 	font-family: guardian-egyptt, georgia, serif;
-	}
+	};
+
 }
 
 -/*============ header nav bar =============*/
