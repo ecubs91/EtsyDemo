@@ -1,48 +1,52 @@
 class ConversationsController < ApplicationController
-	 before_action :conversation, only: [:show]
-	 before_filter :authenticate_user!
-	 helper_method :mailbox, :conversation
-	  
-	  def index
-	    @conversations ||= current_user.mailbox.inbox.all
-	    @con = current_user.mailbox.sentbox.first
-		#@filtered_participants = @con.participants.reject do |u| 
-		  #u.id == current_user.id
-		#end
-		@key = @conversations.each do |conversation|
-		    conversation.messages.each do |message|
-		    	message.sender.first_name
-		    end
-		 end
-	  end
+   before_filter :authenticate_user!
+   before_filter :conversation, only: [:edit, :show, :update, :destroy]
+   helper_method :mailbox, :conversation
 
-	  def show
+  def index
+    @conversations ||= current_user.mailbox.inbox.all
+  end
 
-	  end
+  def reply
+    current_user.reply_to_conversation(conversation, *message_params(:body, :subject))
+    redirect_to conversation
+  end
 
-	  def reply
-		  current_user.reply_to_conversation(conversation, *message_params(:body, :subject))
-		  redirect_to conversation
-		end
+  def trash
+    conversation.move_to_trash(current_user)
+    redirect_to :conversations
+  end
+
+  def update
+     if params[:reply_all].present?
+      last_sender = @conversation.messages.last.sender
+      last_receipt = @conversation.receipts_for(last_sender).last
+      #logger.debug("form update: #{last_sender.inspect}")
+      Rails.logger.debug("form is: #{last_receipt.inspect}")
+      @receipt = current_user.reply_to_all(last_receipt, params[:body])
+
+     redirect_to :action => :show
+    end
+  end
 
   private
-
+ 
   def mailbox
     @mailbox ||= current_user.mailbox
   end
-
+ 
   def conversation
     @conversation ||= mailbox.conversations.find(params[:id])
   end
-
+ 
   def conversation_params(*keys)
     fetch_params(:conversation, *keys)
   end
-
+ 
   def message_params(*keys)
     fetch_params(:message, *keys)
   end
-
+ 
   def fetch_params(key, *subkeys)
     params[key].instance_eval do
       case subkeys.size
@@ -52,4 +56,6 @@ class ConversationsController < ApplicationController
       end
     end
   end
+
+
 end

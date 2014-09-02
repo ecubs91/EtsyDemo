@@ -17,6 +17,7 @@
 	h1, h2 {
 	font-family: guardian-egyptt, georgia, serif;
 	};
+	background: #1D1D1A;
 
 }
 
@@ -24,7 +25,7 @@
 -
 -/*top bar*/
 -.top-bar{
--    background-color: #f74d2e;
+-    background-color: #FF1919;
 -}
 -.top-bar .info {
 -    margin: 0px;
@@ -69,37 +70,24 @@
 -    -moz-box-shadow: 0 5px 6px -6px #ccc;
 -    box-shadow: 0 5px 6px -6px #ccc;
 -}
--.navbar{
--    border-radius: 0;
--    margin-bottom: 0px;
--}
+
 -.navbar-brand{
 -    color:#555 !important;
 -    font-weight: 700;
 -    font-size: 25px;
 -    text-transform: uppercase;
--
--}
--
--.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
--    color: #0FAF97;
--    background-color: #fff;
--}
--.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
--    background-color: #fff;
--    color: #0FAF97;
--}
--.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
--    color: #0FAF97;
--    background-color: transparent;
 -}
 -.navbar-default .navbar-nav>li>a {
 -    color: #000;
--    font-size: 13px;
+-    font-size: 17px;
 -    font-weight: 800;
 -
 -}
 -
+.navbar .navbar-default .navbar-collapse .collapse ul li {
+	font-size: 27px;
+}
+
 -/*======dropdowm menu=========*/
 -
 -.navbar .dropdown-menu {
@@ -131,6 +119,8 @@
 -.navbar .dropdown-menu li a:hover{
 -    background: #0FAF97;
 -    color:#fff;
+
+}
 -}
 
 -/******************* footer **************************/

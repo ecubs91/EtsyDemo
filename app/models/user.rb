@@ -29,9 +29,4 @@ class User < ActiveRecord::Base
   def mailboxer_email(object)
     email
   end
-
-  def members
-    a = self.first_name
-    a.conversation.inbox
-  end
 end

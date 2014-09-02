@@ -10,6 +10,9 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
+    @question = Question.find(params[:id])
+    @all_comments = @question.comment_threads
+    @root_comments = @question.root_comments
   end
 
   # GET /questions/new
@@ -61,6 +64,14 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def create_question_comment
+    @question = Question.find(params[:id])
+    @user_who_commented = current_user
+    @comment = Comment.build_from( @question, @user_who_commented.id, params[:comment_content] )
+    @comment.save
+    redirect_to :back
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
@@ -69,6 +80,6 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params[:question]
+      params.require(:question).permit(:subject, :question, :text)
     end
 end

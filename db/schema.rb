@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901183554) do
+ActiveRecord::Schema.define(version: 20140902134435) do
 
   create_table "comments", force: true do |t|
     t.integer  "commentable_id",   default: 0
@@ -51,29 +51,6 @@ ActiveRecord::Schema.define(version: 20140901183554) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-  end
-
-  create_table "listings", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.decimal  "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.integer  "user_id"
-    t.string   "university"
-    t.string   "degree_subject"
-    t.string   "graduation_year"
-    t.string   "teaching_subject"
-    t.string   "location"
-    t.text     "tutoring_approach"
-    t.string   "tutorial_type"
-    t.text     "about_myself"
-    t.text     "teaching_experience"
-    t.text     "extracurricular_interests"
   end
 
   create_table "mailboxer_conversation_opt_outs", force: true do |t|
@@ -133,6 +110,9 @@ ActiveRecord::Schema.define(version: 20140901183554) do
   end
 
   create_table "questions", force: true do |t|
+    t.string   "subject"
+    t.string   "question"
+    t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
