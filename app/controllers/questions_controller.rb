@@ -28,7 +28,8 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(question_params)
-
+    @question.user_id = current_user.id
+    
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
@@ -71,7 +72,7 @@ class QuestionsController < ApplicationController
     @comment.save
     redirect_to :back
   end
-  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
@@ -80,6 +81,6 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:subject, :question, :text)
+      params.require(:question).permit(:subject, :question, :text, :user_id)
     end
 end

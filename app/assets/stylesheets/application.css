@@ -22,7 +22,6 @@
 }
 
 -/*============ header nav bar =============*/
--
 -/*top bar*/
 -.top-bar{
 -    background-color: #FF1919;
@@ -37,7 +36,7 @@
 -    height: 40px;
 -    color:#555;
 -    font-weight: 500;
--    font-size: 13px;
+-    font-size: 23px;
 -}
 -.top-bar .info li a{
 -    color:#555;
@@ -54,12 +53,13 @@
 -    padding: 9px 20px;
 -    border-bottom: 1px solid #e7e7e7;
 -    font-weight: 400;
--    font-size: 14px;
+-    font-size: 24px;
 -    -webkit-transition: all 200ms ease-in;
 -    -o-transition: all 200ms ease-in;
 -    -moz-transition: all 200ms ease-in;
 -    transition: all 200ms ease-in;
 -}
+-
 -
 -/*******************bootstrap overrides **************************/
 -

@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_one :tutor, dependent: :destroy
   has_many :tutorial_requests, dependent: :destroy
   has_many :enquiries, dependent: :destroy
-
+  has_many :questions
 
   # User can be a student, a tutor or both and can have both the tuition and tutorial request records 
   # foreign key tells Rails to use the tutor_ID to figure out which user was the tutor for this tutorial request

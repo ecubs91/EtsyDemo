@@ -1,3 +1,5 @@
+<div class="container">
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -20,6 +22,14 @@
     Give me your comment : <%= f.text_area "comment_content" %><br>
     <%= f.submit %>
 <% end %>
+
+<p>
+  <strong>Comments: </strong><br>
+  <% @all_comments.each do |comment| %>
+  	<% @user = User.find(comment.user_id) %>
+    <%= comment.body %> by <%= @user.first_name %>
+  <% end %>
+</p>
 
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
