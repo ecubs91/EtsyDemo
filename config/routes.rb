@@ -3,7 +3,9 @@ Etsydemo::Application.routes.draw do
 
   resources :questions do
     collection do
-      post "create_question_comment"
+      post "create_question_comment" do
+        post "create_question_comment_reply"
+      end
     end
   end
 
@@ -19,7 +21,7 @@ Etsydemo::Application.routes.draw do
     end
 
     resources :tutorial_requests
-    resources :disussion_forums
+   
     
     devise_for :users, :controllers => { :registrations => "registrations" }
    

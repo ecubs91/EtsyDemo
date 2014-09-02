@@ -1,8 +1,5 @@
-
-  <!-- Search Form -->
-
-
-     <div class="row"> 
+<div class="container">
+    <div class="row"> 
       <%= form_tag search_tutors_path, method: :get, class: "center" do %>
       <p>
         <%= text_field_tag :search, params[:search], class: "form-control" %>
@@ -20,7 +17,6 @@
   </div>
     
   <div class="row">
- 
             <!-- Category Search -->  
             <div class="col-md-2">                
                 <p>Sort by</p>
@@ -59,14 +55,16 @@
                 <%= link_to 'Destroy', tutor, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %> 
               <% end %>  
            </div>
-           <div class="col-md-2">
+           <div class="col-md-3">
               <%= link_to "Message", class: "btn btn-link" %> 
 
               <br>
               <%= link_to "Request this tutor", new_tutorial_request_path, class: "btn btn-primary" %>
            </div>    
+           
+
         <% end %>
-</div>
+  </div><!-- end of row -->
   
 <br>
 

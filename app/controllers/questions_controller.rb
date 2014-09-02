@@ -73,6 +73,11 @@ class QuestionsController < ApplicationController
     redirect_to :back
   end
 
+  def create_question_comment_reply
+    @user_who_commented_replied = current_user
+    @comment.move_to_child_of(the_desired_parent_comment)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
