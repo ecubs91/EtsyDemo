@@ -5,8 +5,6 @@ class TutorsController < ApplicationController
   # GET /tutors
   # GET /tutors.json
 
-
-
   def search
     @filters = params.slice(:university)
     Tutor.reindex
@@ -19,9 +17,6 @@ class TutorsController < ApplicationController
     end
   end
 
-
-
-
   def index
     @tutors = Tutor.all.paginate(:page => params[:page], :per_page => 10)
   end
@@ -33,7 +28,7 @@ class TutorsController < ApplicationController
     if @reviews.blank?
       avg_rating = 0 
     else
-      @avg_rating = @tutor.average(:rating).round(2) 
+      @avg_rating = @reviews.average(:rating).round(2) 
     end
   end
 

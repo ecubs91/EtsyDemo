@@ -61,7 +61,7 @@
           <td>
             <div class="star-rating" data-score= <%= review.rating %> ></div>
             <p><%= h(review.comment).gsub(/\n/, '<br/>').html_safe %></p>
-          </tD>
+          </td>
         </tr>
       <% end %>
     </tbody>
@@ -75,8 +75,11 @@
 
 <script>
 $('.star-rating').raty({
-  path: 'https://dl.dropboxusercontent.com/s/2ujeq5cjjbrnva0',
-  'https://dl.dropboxusercontent.com/s/47b8b0is4ku9gji/star-on.png',
+  starOff: 'https://dl.dropboxusercontent.com/s/pd0ba2om071nkz8/star-off.png',
+  starOn: 'https://dl.dropboxusercontent.com/s/47b8b0is4ku9gji/star-on.png',
+  starHalf: 'https://dl.dropboxusercontent.com/s/2ujeq5cjjbrnva0/star-half.png',
+  halfShow: true,
+  half: true,
   readOnly: true,
   score: function() {
       return $(this).attr('data-score');

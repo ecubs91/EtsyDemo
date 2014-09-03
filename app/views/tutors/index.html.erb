@@ -15,10 +15,10 @@
           <% end %>
     </div>
   </div>
-    
-  <div class="row">
-            <!-- Category Search -->  
-            <div class="col-md-2">                
+  
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
                 <p>Sort by</p>
                 <p>University
                   <ul>
@@ -27,19 +27,13 @@
                      <li><%= link_to "Cambridge University", search_tutors_path({:university => 'Cambridge University'}.merge(params)) %></li>
                                         
                      <li><%= link_to "London University", search_tutors_path({:university => 'London University'}.merge(params)) %>  </li>
-                  </ul>   
-
-              </p>       
-
-                <p>Curriculum<br>-Alevel<br>-IB<br>-PreU<br>-SAT<br>-University Entrance</p>
-                <p>Rating<br>-At Least 5 stars<br>-At Least 4 stars<br>-At Least 3 stars</p>
-                <p>Tutorial Type<br>-Online<br>-Meet in person</p>   
-                <p>Location</p>             
-            </div>
-
+                  </ul>
+                </p>   
+    </div>
+    <div class="span10">
+      <div class="row">
           <% @tutors.each do |tutor| %>
-            
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <a href="/tutors/<%= tutor.id %>">
                     <div class="image-photo" style="background-image: url('<%= tutor.image.url %>'); width: 150px; background-size: 100%; height: 150px;">
                     </div>
@@ -54,17 +48,20 @@
                 <%= link_to 'Edit', edit_tutor_path(tutor), class: "btn btn-link" %>            
                 <%= link_to 'Destroy', tutor, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %> 
               <% end %>  
-           </div>
-           <div class="col-md-3">
+            </div>
+            <div class="col-md-2">
               <%= link_to "Message", class: "btn btn-link" %> 
-
               <br>
               <%= link_to "Request this tutor", new_tutorial_request_path, class: "btn btn-primary" %>
-           </div>    
-           
-
+            </div>     
         <% end %>
-  </div><!-- end of row -->
+      </div><!-- end of row -->
+    </div><!-- end of span 10 -->
+  </div><!-- end of row-fluid -->
+</div><!-- end of container-fluid -->
+
+
+        
   
 <br>
 
