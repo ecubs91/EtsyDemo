@@ -21,9 +21,6 @@ Etsydemo::Application.routes.draw do
         post 'trash'
       end
     end
-
-    resources :tutorial_requests
-   
     
     devise_for :users, :controllers => { :registrations => "registrations" }
    
@@ -36,9 +33,7 @@ Etsydemo::Application.routes.draw do
   end
   
     resources :enquiries do
-    resources :proposals do
-      post 'accept'
-    end    
+  
   end
     
   end

@@ -30,14 +30,6 @@ ActiveRecord::Schema.define(version: 20140902141830) do
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
-  create_table "disussion_forums", force: true do |t|
-    t.string   "subject"
-    t.text     "question"
-    t.text     "details"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "enquiries", force: true do |t|
     t.string   "subject"
     t.string   "level"
@@ -51,6 +43,29 @@ ActiveRecord::Schema.define(version: 20140902141830) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "listings", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.decimal  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "user_id"
+    t.string   "university"
+    t.string   "degree_subject"
+    t.string   "graduation_year"
+    t.string   "teaching_subject"
+    t.string   "location"
+    t.text     "tutoring_approach"
+    t.string   "tutorial_type"
+    t.text     "about_myself"
+    t.text     "teaching_experience"
+    t.text     "extracurricular_interests"
   end
 
   create_table "mailboxer_conversation_opt_outs", force: true do |t|
@@ -106,7 +121,6 @@ ActiveRecord::Schema.define(version: 20140902141830) do
     t.boolean  "success"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "enquiry_id"
   end
 
   create_table "questions", force: true do |t|
@@ -124,6 +138,7 @@ ActiveRecord::Schema.define(version: 20140902141830) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "listing_id"
     t.integer  "tutor_id"
   end
 
@@ -133,12 +148,6 @@ ActiveRecord::Schema.define(version: 20140902141830) do
     t.string   "duration"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "tutor_id"
-    t.integer  "student_id"
-    t.integer  "user_id"
-    t.integer  "rate"
-    t.string   "location"
-    t.text     "notes"
   end
 
   create_table "tutors", force: true do |t|
@@ -150,7 +159,6 @@ ActiveRecord::Schema.define(version: 20140902141830) do
     t.string   "string"
     t.text     "about_myself"
     t.text     "tutoring_approach"
-    t.text     "teaching_expexperience"
     t.text     "extracurricular_interests"
     t.datetime "created_at"
     t.datetime "updated_at"
