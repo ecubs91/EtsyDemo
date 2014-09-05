@@ -1,1 +1,0 @@
-json.extract! @tutor, :id, :university, :degree_subject, :teaching_subject, :location, :tutorial_type, :string, :about_myself, :tutoring_approach, :teaching_expexperience, :extracurricular_interests, :created_at, :updated_at

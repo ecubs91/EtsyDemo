@@ -60,7 +60,7 @@ class ReviewsController < ApplicationController
       @review = Review.find(params[:id])
     end
   def set_tutor_profile
-    @tutor_profile = Tutor_profile.find(params[:tutor_profile_id])
+    @tutor_profile = TutorProfile.find(params[:tutor_profile_id])
     end
     def check_user
       unless @review.user == current_user 
