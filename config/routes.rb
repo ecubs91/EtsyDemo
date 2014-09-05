@@ -1,5 +1,6 @@
 Etsydemo::Application.routes.draw do
   
+
   match '/contacts', to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]
 
@@ -24,13 +25,14 @@ Etsydemo::Application.routes.draw do
     
     devise_for :users, :controllers => { :registrations => "registrations" }
    
-    resources :tutors do 
+    resources :tutor
+    
+    resources :tutor_profiles do 
       collection do 
         get 'search'
       end
-
-    resources :reviews, except: [:show, :index]
-  end
+      resources :reviews, except: [:show, :index]
+    end
   
     resources :enquiries do
   

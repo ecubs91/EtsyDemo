@@ -1,6 +1,6 @@
   <div class="row">
     <div class="right"> 
-          <%= link_to new_tutor_path, class: "btn btn-primary", data: { no_turbolink: true } do %>
+      <%= link_to new_tutor_profile_path, class: "btn btn-primary", data: { no_turbolink: true } do %>
           <i class="glyphicon glyphicon-plus"></i> <%= t('post_a_tutor_profile') %>
           <% end %>
     </div>
@@ -46,7 +46,7 @@
 <br>
 
 <% if user_signed_in? %> 
-  <%= link_to new_tutor_path, class: "btn btn-primary", data: { no_turbolink: true } do %> 
+<%= link_to new_tutor_profile_path, class: "btn btn-primary", data: { no_turbolink: true } do %> 
     <i class="glyphicon glyphicon-plus"></i> Post a Tutor Profile
   <% end %>
 <% end %>

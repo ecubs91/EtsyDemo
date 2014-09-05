@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:edit, :update, :destroy]
-  before_action :set_tutor
+  before_action :set_tutor_profile
   before_action :authenticate_user!
   before_action :check_user, only: [:edit, :update, :destroy]
 
@@ -18,10 +18,10 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
-    @review.tutor_id = @tutor.id
+    @review.tutor_profile_id = @tutor_profile.id
     respond_to do |format|
       if @review.save
-        format.html { redirect_to tutor_path(@tutor), notice: 'Review was successfully created.' }
+        format.html { redirect_to tutor_profile_path(@tutor_profile), notice: 'Review was successfully created.' }
         format.json { render action: 'show', status: :created, location: @review }
       else
         format.html { render action: 'new' }
@@ -59,8 +59,8 @@ class ReviewsController < ApplicationController
     def set_review
       @review = Review.find(params[:id])
     end
-    def set_tutor
-      @tutor = Tutor.find(params[:tutor_id])
+  def set_tutor_profile
+    @tutor_profile = Tutor_profile.find(params[:tutor_profile_id])
     end
     def check_user
       unless @review.user == current_user 
