@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, presence: true  
 
   has_one :tutor, dependent: :destroy
-  has_many :tutorial_requests, dependent: :destroy
+  has_one :tutor_profile, dependent: :destroy
   has_many :enquiries, dependent: :destroy
   has_many :questions
 

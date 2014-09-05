@@ -1,6 +1,7 @@
 class Review < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :tutor
+  belongs_to :tutor_profile
 
 	validates :rating, :comment, presence: true
 	validates :rating, numericality: {
