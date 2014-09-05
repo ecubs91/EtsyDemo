@@ -2,12 +2,23 @@
     <div class="row"> 
       <%= form_tag search_tutors_path, method: :get, class: "center" do %>
       <p>
-        <%= text_field_tag :search, params[:search], class: "form-control" %>
+        <%= autocomplete_field_tag :search, params[:search], autocomplete_tutor_teaching_subject_tutors_path, class: "form-control" %>
         <%= submit_tag "Subject Search", name: nil, class: "btn btn-default" %>
       </p>
       <% end %>  
     </div>
   
+<input type="text" id="query" name="query" />
+
+<script src="jquery.js"></script>
+<script src="typeahead.js"></script>
+<script>
+  $("#query").typeahead({
+    name: "tutors",
+    remote: "/tutors/autocomplete?query=%QUERY"
+  });
+</script>
+
   <div class="row">
     <div class="right"> 
           <%= link_to new_tutorial_request_path, class: "btn btn-primary", data: { no_turbolink: true } do %>
@@ -22,11 +33,9 @@
                 <p>Sort by</p>
                 <p>University
                   <ul>
-                     <li><%= link_to "Oxford", search_tutors_path({:university => '%Oxford%'}.merge(params)) %></li>
+                     <li><%= link_to "Oxford", search_tutors_path({:university => 'Oxford'}.merge(params)) %></li>
                                         
-                     <li><%= link_to "Cambridge University", search_tutors_path({:university => 'Cambridge University'}.merge(params)) %></li>
-                                        
-                     <li><%= link_to "London University", search_tutors_path({:university => 'London University'}.merge(params)) %>  </li>
+                     <li><%= link_to "Cambridge", search_tutors_path({:university => 'Cambridge'}.merge(params)) %></li>
                   </ul>
                 </p>   
     </div>

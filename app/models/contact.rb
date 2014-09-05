@@ -1,4 +1,4 @@
-class ContactForm < MailForm::Base
+class Contact < MailForm::Base
   attribute :name,      :validate => true
   attribute :email,     :validate => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
   attribute :file,      :attachment => true
@@ -17,7 +17,7 @@ class ContactForm < MailForm::Base
   end
 
   def contact
-    @contact = ContactForm.new(params[:id]),
+    @contact = Contact.new(params[:id]),
     @contact.deliver
   end
 end

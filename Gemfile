@@ -25,6 +25,8 @@ gem 'mailboxer'
 gem 'acts_as_commentable_with_threading'
 gem 'mail_form'
 gem 'simple_form'
+gem "jquery-ui-rails"
+gem 'rails4-autocomplete'
 
 group :production do
 	gem 'pg'
