@@ -1,6 +1,10 @@
 Etsydemo::Application.routes.draw do
   
 
+  resources :subjects
+
+  resources :tutorships
+
   match '/contacts', to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]
 
@@ -23,7 +27,7 @@ Etsydemo::Application.routes.draw do
       end
     end
     
-    devise_for :users, :controllers => { :registrations => "registrations" }
+    devise_for :users, :path_prefix => 'account', :controllers => { :registrations => "registrations" }
    
     resources :tutor_profiles do 
       get :autocomplete_tutor_profile_teaching_subject, :on => :collection
@@ -33,10 +37,9 @@ Etsydemo::Application.routes.draw do
       resources :reviews, except: [:show, :index]
     end
   
-    resources :enquiries do
-  
-  end
+    resources :enquiries 
     
+    resources :users
   end
 
 

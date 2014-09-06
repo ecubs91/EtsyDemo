@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140905193839) do
+ActiveRecord::Schema.define(version: 20140906100649) do
 
   create_table "comments", force: true do |t|
     t.integer  "commentable_id",   default: 0
@@ -43,29 +43,6 @@ ActiveRecord::Schema.define(version: 20140905193839) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-  end
-
-  create_table "listings", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.decimal  "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.integer  "user_id"
-    t.string   "university"
-    t.string   "degree_subject"
-    t.string   "graduation_year"
-    t.string   "teaching_subject"
-    t.string   "location"
-    t.text     "tutoring_approach"
-    t.string   "tutorial_type"
-    t.text     "about_myself"
-    t.text     "teaching_experience"
-    t.text     "extracurricular_interests"
   end
 
   create_table "mailboxer_conversation_opt_outs", force: true do |t|
@@ -114,15 +91,6 @@ ActiveRecord::Schema.define(version: 20140905193839) do
 
   add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id"
 
-  create_table "proposals", force: true do |t|
-    t.integer  "tutor_id"
-    t.integer  "tutorial_request_id"
-    t.text     "message"
-    t.boolean  "success"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "questions", force: true do |t|
     t.string   "subject"
     t.string   "question"
@@ -140,6 +108,12 @@ ActiveRecord::Schema.define(version: 20140905193839) do
     t.integer  "user_id"
     t.integer  "listing_id"
     t.integer  "tutor_profile_id"
+  end
+
+  create_table "subjects", force: true do |t|
+    t.string   "subject_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tutor_profiles", force: true do |t|
@@ -160,24 +134,13 @@ ActiveRecord::Schema.define(version: 20140905193839) do
     t.datetime "image_updated_at"
   end
 
-  create_table "tutorial_requests", force: true do |t|
-    t.string   "subject"
-    t.string   "level"
+  create_table "tutorships", force: true do |t|
+    t.integer  "tutor_id"
+    t.integer  "student_id"
+    t.integer  "subject_id"
+    t.boolean  "accepted"
+    t.string   "starting_date"
     t.string   "duration"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tutors", force: true do |t|
-    t.string   "university"
-    t.string   "degree_subject"
-    t.string   "teaching_subject"
-    t.string   "location"
-    t.string   "tutorial_type"
-    t.string   "string"
-    t.text     "about_myself"
-    t.text     "tutoring_approach"
-    t.text     "extracurricular_interests"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

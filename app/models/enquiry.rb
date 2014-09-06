@@ -1,8 +1,21 @@
 class Enquiry < ActiveRecord::Base
-	validates :subject, :level, :duration, presence: true
+	validates :subject, :level, presence: true
 
-	belongs_to :user
-	belongs_to :student, class_name: "User"
-	belongs_to :tutor, class_name: "User"
-	has_many :proposals
+  belongs_to :user
+  
+ # after_create :send_message
+  
+  def send_message(tutor_id)
+    subject = self.subject
+    level = self.level
+    location = self.location
+    tuition_fee = self.tuition_fee
+    note = self.note
+    name = self.user.name
+    
+  # message = 'Enquiry for: "#{subjrails s =ect}", "#{level}", "#{location}", "#{tuition_fee}", "#{note}" '
+    message  = subject , level, location
+    self.user.send_message(tutor_id,  message  , 'hi')
+  end 
+	
 end

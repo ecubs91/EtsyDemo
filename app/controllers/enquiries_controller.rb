@@ -30,9 +30,10 @@ class EnquiriesController < ApplicationController
   def create
     @enquiry = Enquiry.new(enquiry_params)
     @enquiry.user_id = current_user.id
-
+    @a = params[:tutor_profile]
     respond_to do |format|
       if @enquiry.save
+        @enquiry.send_message(@a)
         format.html { redirect_to @enquiry, notice: 'Enquiry was successfully created.' }
         format.json { render action: 'show', status: :created, location: @enquiry }
       else

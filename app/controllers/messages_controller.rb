@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
   def new
     @user = User.find(params[:user])
     @message = current_user.messages.new
+    
   end
  
   def create
