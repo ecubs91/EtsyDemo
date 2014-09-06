@@ -3,7 +3,7 @@ Etsydemo::Application.routes.draw do
 
   resources :subjects
 
-  resources :tutorships
+  resources :tutorships 
 
   match '/contacts', to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]

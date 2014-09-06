@@ -5,7 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
 User.delete_all
 @a = User.create!(email: 'lee@test.com', password: 'abcdefgh', password_confirmation: 'abcdefgh', :first_name => 'Harry', :last_name => 'Lee')
 @a.save
@@ -30,3 +29,4 @@ Enquiry.delete_all
 TutorProfile.delete_all
 @d = TutorProfile.create!(university: 'Oxford', degree_subject: 'Biochemistry', teaching_subject: 'biology', user_id: 1)
 @d.save
+

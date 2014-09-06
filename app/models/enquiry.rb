@@ -15,7 +15,7 @@ class Enquiry < ActiveRecord::Base
     
   # message = 'Enquiry for: "#{subjrails s =ect}", "#{level}", "#{location}", "#{tuition_fee}", "#{note}" '
     message  = subject , level, location
-    self.user.send_message(tutor_id,  message  , 'hi')
+    # self.user.send_message(tutor_id,  message  , 'hi')
   end 
 	
 end

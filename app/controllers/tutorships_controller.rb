@@ -1,7 +1,6 @@
 class TutorshipsController < ApplicationController
   before_action :set_tutorship, only: [:show, :edit, :update, :destroy]
 
-  
   def tutor
     @tutorship = Tutorship.all.
   end
@@ -21,11 +20,9 @@ class TutorshipsController < ApplicationController
   end
 
   # GET /tutorships/new
-  def new
-    #Rails.logger.debug params.inspect
-   # @tutor_profile = User.find(params[:tutor_profile])
-    @tutorship = Tutorship.new
-  end
+  #def new
+    #@tutorship = Tutorship.new
+  #end
 
   # GET /tutorships/1/edit
   def edit
@@ -39,7 +36,7 @@ class TutorshipsController < ApplicationController
     @tutorship.student_id = current_user
     @tutorship.tutor_id = params[:tutor_id]
     @tutorship.accepted = true
-    
+    @tutorship.tutor_id.pending_invite_to_be_a_tutor
     respond_to do |format|
       if @tutorship.save
         format.html { redirect_to @tutorship, notice: 'Tutorship was successfully created.' }
@@ -75,7 +72,9 @@ class TutorshipsController < ApplicationController
     end
   end
 
-  private
+
+  
+private
     # Use callbacks to share common setup or constraints between actions.
     def set_tutorship
       @tutorship = Tutorship.find(params[:id])
