@@ -17,32 +17,25 @@ class User < ActiveRecord::Base
   has_many  :tutorships_as_tutor,
               ->{ Tutorship.accepted },
               class_name: "Tutorship",
-              foreign_key: :tutor_id
+  foreign_key: :user_id
 
   # invites asking this user to be a tutor
   has_many  :pending_invites_to_be_a_tutor,
               ->{ Tutorship.pending_invites_from_student },
               class_name: "Tutorship",
-              foreign_key: :tutor_id
+  foreign_key: :user_id
 
   # rejected invites asking this user to be a tutor
   has_many  :rejected_invites_to_be_a_tutor,
               ->{ Tutorship.rejected_invites_from_student },
               class_name: "Tutorship",
-              foreign_key: :tutor_id
+  foreign_key: :user_id
 
-  has_many  :tutors,
-              class_name: "User",
-              through: :tutorships_as_student
-
-  has_many  :students,
-              class_name: "User",
-              through: :tutorships_as_tutor
 
   # User can be a student, a tutor or both and can have both the tuition and tutorial request records 
   # foreign key tells Rails to use the tutor_ID to figure out which user was the tutor for this tutorial request
-  has_many :tutors, class_name: "Tutorial_Request", foreign_key: "tutor_id"
-  has_many :students, class_name: "Tutorial_Request", foreign_key: "student_id"  
+  has_many :tutors, class_name: "Tutorship", foreign_key: "tutor_id"
+  has_many :students, class_name: "Tutorship", foreign_key: "student_id"  
   has_many :reviews, dependent: :destroy
 
   def name

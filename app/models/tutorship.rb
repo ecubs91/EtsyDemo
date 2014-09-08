@@ -1,7 +1,8 @@
 class Tutorship < ActiveRecord::Base
-  belongs_to :tutor, class_name: "User"
-  belongs_to :student, class_name: "User"
-  belongs_to :subject
+  belongs_to :user
+  belongs_to :tutor_profile
+  
+  
 
   # scopes defined as class methods
   class << self

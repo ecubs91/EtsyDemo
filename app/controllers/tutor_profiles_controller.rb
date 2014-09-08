@@ -94,11 +94,11 @@ class TutorProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tutor_profile_params
-      params.require(:tutor_profile).permit(:user_id, :university, :degree_subject, :teaching_subject, :location, :about_myself, :tutoring_approach, :teaching_experience, :extracurricular_interests, :image)
+      params.require(:tutor_profile).permit(:user_id, :university, :degree_subject, :teaching_subject, :location, :about_myself, :tutoring_approach, :teaching_experience, :extracurricular_interests, :image, :tutor_profile_id)
     end
   
     def check_user
-      if current_user != @tutor.user
+      if current_user != @tutor_profile.user
         redirect_to root_url, alert: "Sorry this profile belongs to someone else"
       end
     end

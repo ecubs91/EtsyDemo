@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906100649) do
+ActiveRecord::Schema.define(version: 20140907225634) do
 
   create_table "comments", force: true do |t|
     t.integer  "commentable_id",   default: 0
@@ -132,17 +132,18 @@ ActiveRecord::Schema.define(version: 20140906100649) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "tutorship_id"
   end
 
   create_table "tutorships", force: true do |t|
-    t.integer  "tutor_id"
-    t.integer  "student_id"
-    t.integer  "subject_id"
     t.boolean  "accepted"
     t.string   "starting_date"
     t.string   "duration"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "created_by_student"
+    t.integer  "user_id"
+    t.string   "tutor_profile_id"
   end
 
   create_table "users", force: true do |t|

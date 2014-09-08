@@ -47,11 +47,10 @@ Etsydemo::Application.routes.draw do
 
   get "pages/about"
   get "pages/contact"
-  get 'accept' => "tutorial_request#2#proposals#new"
 
 
-  get 'tutorspage' => "tutorial_requests#tutors"
-  get 'studentspage' => "tutorial_requests#students"
+  get 'tutors' => "tutorships#tutors"
+  get 'students' => "tutorships#students"
 
   get "pages/inbox"
 

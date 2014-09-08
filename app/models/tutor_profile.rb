@@ -5,5 +5,6 @@ class TutorProfile < ActiveRecord::Base
   validates :university, presence: true 
 
   belongs_to :user, dependent: :delete
+  has_many :tutorships
   has_many :reviews
 end

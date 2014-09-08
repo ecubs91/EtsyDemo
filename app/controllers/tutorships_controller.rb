@@ -1,11 +1,12 @@
 class TutorshipsController < ApplicationController
   before_action :set_tutorship, only: [:show, :edit, :update, :destroy]
 
-  def tutor
-    @tutorship = Tutorship.all.
+  def tutors
+    @tutorships = Tutorship.all
   end
   
-  def student
+  def students
+    @tutorships = Tutorship.all
   end
   
   # GET /tutorships
@@ -20,23 +21,24 @@ class TutorshipsController < ApplicationController
   end
 
   # GET /tutorships/new
-  #def new
-    #@tutorship = Tutorship.new
-  #end
+  def new
+    @tutorship = Tutorship.new
+  end
 
   # GET /tutorships/1/edit
   def edit
   end
 
+  
   # POST /tutorships
   # POST /tutorships.json
   def create
     # logger.debug("params: #{params.inspect}")
     @tutorship = Tutorship.new(tutorship_params)
-    @tutorship.student_id = current_user
-    @tutorship.tutor_id = params[:tutor_id]
-    @tutorship.accepted = true
-    @tutorship.tutor_id.pending_invite_to_be_a_tutor
+    @tutorship.user_id = current_user.id
+    @tutorship.tutor_profile_id = params[:tutor_profile_id] #tutor__profile id in the tutorship table equals the tutor__profile_id of the tutor_profile student is on 
+    @tutorship.created_by_student = true
+    
     respond_to do |format|
       if @tutorship.save
         format.html { redirect_to @tutorship, notice: 'Tutorship was successfully created.' }
@@ -51,6 +53,9 @@ class TutorshipsController < ApplicationController
   # PATCH/PUT /tutorships/1
   # PATCH/PUT /tutorships/1.json
   def update
+    @tutorship = Tutorship.find(tutorship_params) #saying find(params[:id]) tells rails to allow more parameters than tutorship.id alone
+    @tutorship.accepted = true
+    
     respond_to do |format|
       if @tutorship.update(tutorship_params)
         format.html { redirect_to @tutorship, notice: 'Tutorship was successfully updated.' }
@@ -82,6 +87,6 @@ private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tutorship_params
-      params.require(:tutorship).permit(:tutor_id, :student_id, :subject_id, :accepted, :starting_date, :duration)
+      params.require(:tutorship).permit(:tutor_profile_id, :user_id, :accepted, :created_by_student, :starting_date, :duration)
     end
 end
