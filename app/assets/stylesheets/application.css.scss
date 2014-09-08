@@ -8,140 +8,146 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
+
  *= require_tree .
+ *= require_self
  */
 
-
 .jumbotron {
-  background: #FF1919;
-    
-	h1, h2 {
-	font-family: guardian-egyptt, georgia, serif;
-	}
+  background-color: #1D1D1A;
+
+  h1, h2 {
+  font-family: guardian-egyptt, georgia, serif;
+  }
 }
 
-/*============ header nav bar =============*/
-/*top bar*/
+
+/*header nav bar
+____________________*/
 .top-bar{
-    background-color: #FF1919;
-}
-.top-bar .info {
-    margin: 0px;
-}
-.top-bar .info li {
-    font-size: 14px;
-    display: table-cell;
-    vertical-align: middle;
-    height: 40px;
-    color:#555;
-    font-weight: 500;
-    font-size: 23px;
-}
-.top-bar .info li a{
-    color:#555;
-    margin-right: 10px;
+  background-color: #FF1919;
 }
 
+.top-bar .info {
+  margin: 0px;
+}
+
+.top-bar .info li {
+  font-size: 14px;
+  display: table-cell;
+  vertical-align: middle;
+  height: 40px;
+  color:#555;
+  font-weight: 500;
+  font-size: 23px;
+}
+
+.top-bar .info li a {
+  color:#555;
+  margin-right: 10px;
+}
 
 .top-bar .dropdown-menu {
-	background-color: #EFEFEB;
+  background-color: #EFEFEB;
+ }
+
+.top-bar .dropdown-menu li a {
+  color:#444;
+  padding: 9px 20px;
+  border-bottom: 1px solid #e7e7e7;
+  font-weight: 400;
+  font-size: 24px;
+  -webkit-transition: all 200ms ease-in;
+  -o-transition: all 200ms ease-in;
+  -moz-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
 }
 
-.top-bar .dropdown-menu li a{
-    color:#444;
-    padding: 9px 20px;
-    border-bottom: 1px solid #e7e7e7;
-    font-weight: 400;
-    font-size: 24px;
-    -webkit-transition: all 200ms ease-in;
-    -o-transition: all 200ms ease-in;
-    -moz-transition: all 200ms ease-in;
-    transition: all 200ms ease-in;
-}
 
-
-/*******************bootstrap overrides **************************/
-
+/*bootstrap overrides
+____________________*/
 .navbar-default {
-    background-color: #fff;
-    border-color: #eeeeee;
-    -webkit-box-shadow: 0 5px 6px -6px #ccc;
-    -moz-box-shadow: 0 5px 6px -6px #ccc;
-    box-shadow: 0 5px 6px -6px #ccc;
+  background-color: #fff;
+  border-color: #eeeeee;
+  -webkit-box-shadow: 0 5px 6px -6px #ccc;
+  -moz-box-shadow: 0 5px 6px -6px #ccc;
+  box-shadow: 0 5px 6px -6px #ccc;
 }
-.navbar-brand{
-    color:#555 !important;
-    font-weight: 700;
-    font-size: 25px;
-    text-transform: uppercase;
-}
-.navbar-default .navbar-nav>li>a {
-    color: #000;
-    font-size: 17px;
-    font-weight: 800;
 
+.navbar-brand {
+  color:#555 !important;
+  font-weight: 700;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #000;
+  font-size: 17px;
+  font-weight: 800;
 }
 
 .navbar .navbar-default .navbar-collapse .collapse ul li {
-	font-size: 27px;
+  font-size: 27px;
 }
 
-/*======dropdowm menu=========*/
-
+/*dropdown menu
+____________________*/
 .navbar .dropdown-menu {
-    padding: 0;
-    margin: 0;
-    min-width: 190px;
-    background-color: #fff;
-    border: none;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 190px;
+  background-color: #fff;
+  border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
 
-    border-top: 2px solid #0FAF97 !important;
-}
-.navbar .dropdown-menu li a{
-    color:#444;
-    padding: 9px 20px;
-    border-bottom: 1px solid #e7e7e7;
-    font-weight: 400;
-    font-size: 14px;
-    -webkit-transition: all 200ms ease-in;
-    -o-transition: all 200ms ease-in;
-    -moz-transition: all 200ms ease-in;
-    transition: all 200ms ease-in;
-}
-.navbar .dropdown-menu li:last-child a{
-    border-bottom: none;
-}
-.navbar .dropdown-menu li a:hover{
-    background: #0FAF97;
-    color:#fff;
-
+  border-top: 2px solid #0FAF97 !important;
 }
 
+.navbar .dropdown-menu li a {
+  color:#444;
+  padding: 9px 20px;
+  border-bottom: 1px solid #e7e7e7;
+  font-weight: 400;
+  font-size: 14px;
+  -webkit-transition: all 200ms ease-in;
+  -o-transition: all 200ms ease-in;
+  -moz-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+}
 
-/******************* footer **************************/
+.navbar .dropdown-menu li:last-child a {
+  border-bottom: none;
+}
+
+.navbar .dropdown-menu li a:hover {
+  background: #0FAF97;
+  color:#fff;
+}
+
+/*footer
+____________________*/
 .footer {
-	width: 100%;
-	clear: both;
-	margin-top: 40px;
+  width: 100%;
+  clear: both;
+  margin-top: 40px;
 }
 
 .footer .row .col-md-3 h3 {
-    font-color: #2D3C49
-}
-.footer .row .col-md-3 ul {
-	font-color: #2D3C49
+  font-color: #2D3C49
 }
 
+.footer .row .col-md-3 ul {
+  font-color: #2D3C49
+}
 
 .footer col-md-3 ul li {
-	color: #3A4954
+  color: #3A4954
 }
 
 .tail {
-	width: 984px;
-	margin: 0 auto;
+  width: 984px;
+  margin: 0 auto;
 }
