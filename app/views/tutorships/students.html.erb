@@ -27,7 +27,7 @@
   tutor_profile = TutorProfile.find(tutorship.tutor_profile_id) 
   user = User.find(tutor_profile.user_id) 
   %>
-        <%= @user.first_name %> </td>
+        <%= user.first_name %> </td>
       <td class="center"><%= tutorship.starting_date%></td>  
       <td class="center"><%= tutorship.duration %></td>  
       <td class="center">
@@ -36,7 +36,8 @@
         complete <!-- at the end of tutorship duration -->
       </td>
       <td class="center">
-        Pay Now
+        
+        <%= link_to "Pay Now",  edit_tutorship_path(tutorship) %>
       </td>
       <td class="center">
         write a review <!-- write a review function becomes active if status is complete, direct to new_tutor_review_path where the tutor ID matches otherwise, review field is left blank-->

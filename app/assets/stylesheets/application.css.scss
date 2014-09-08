@@ -33,19 +33,20 @@ ____________________*/
 }
 
 .top-bar .info li {
-  font-size: 14px;
+  font-size: 3px;
   display: table-cell;
   vertical-align: middle;
   height: 40px;
   color:#555;
   font-weight: 500;
-  font-size: 23px;
 }
 
 .top-bar .info li a {
+  font-size: 14px;
   color:#555;
   margin-right: 10px;
 }
+
 
 .top-bar .dropdown-menu {
   background-color: #EFEFEB;
@@ -56,7 +57,7 @@ ____________________*/
   padding: 9px 20px;
   border-bottom: 1px solid #e7e7e7;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 13px;
   -webkit-transition: all 200ms ease-in;
   -o-transition: all 200ms ease-in;
   -moz-transition: all 200ms ease-in;
@@ -83,12 +84,12 @@ ____________________*/
 
 .navbar-default .navbar-nav>li>a {
   color: #000;
-  font-size: 17px;
+  font-size: 7px;
   font-weight: 800;
 }
 
 .navbar .navbar-default .navbar-collapse .collapse ul li {
-  font-size: 27px;
+  font-size: 7px;
 }
 
 /*dropdown menu

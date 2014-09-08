@@ -1,25 +1,23 @@
 @import "bootstrap";
 
-/*login and signup form
-____________________*/
-.my-login-form {
-  padding: 30px 20px;
-  border: 1px solid #eeeeee;
-}
 
-.form-btm-link a {
-  color: #0FAF97;
-}
 
-.form-btm-link a:hover {
-  text-decoration: underline; 
+/*************************login or signup form********************/
+.my-login-form{
+    padding: 30px 20px;
+    border:1px solid #eeeeee;
 }
-
-.form-btm-link span {
-  margin:0px 20px;
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 23px;
+.form-btm-link a{
+    color:#0FAF97;
+}
+.form-btm-link a:hover{
+    text-decoration: underline; 
+}
+.form-btm-link span{
+    margin:0px 20px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 23px;
 }
 
 
